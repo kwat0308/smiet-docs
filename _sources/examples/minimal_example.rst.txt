@@ -1,0 +1,159 @@
+Minimal Example
+===============
+
+Using SMIETRun
+--------------
+
+Here we will show you a quick way to get started with template synthesis using the `smiet.core.SMIETRun` class. This class handles all necessary steps (loading origin showers, loading target showers, synthesising them, and extracting relevant quantities). This example will synthesise traces given by a CoREAS simulation using pre-simulated origin templates.
+
+.. note::
+    
+    The template library needs to be downloaded for this example to work. The base template library can be installed from `here <https://bwsyncandshare.kit.edu/s/DrsbG27mkxtcetF>`_ (approximately 13 GB when unpacked).
+
+.. code-block:: python
+
+    from smiet import SMIETRun, units
+    import numpy as np
+
+    import matplotlib.pyplot as plt  # for plotting routines
+    
+    # Define paths to origin templates and target shower data
+    path_to_templates = "/path/to/template/library"
+
+    # initialize the SMIETRun object
+    smiet_runner = SMIETRun(
+        site="base", backend="numpy"
+    )
+
+    # load templates within a given Xmax and zenith range
+    smiet_runner.load_templates(
+        template_repo = path_to_templates,
+        xmax_range = (700, 1000),
+        zenith_range = (36, 40),
+        randomize = False
+    )
+
+    # load target showers from a coreas file
+    smiet_runner.load_coreas_showers(
+        coreas_shower_paths = [
+            "/path/to/coreas/sim/hdf5/file"
+        ]
+    )
+
+    # synthesize the traces
+    smiet_runner.synthesize_showers(slices=False, interpolation=True)
+
+    # get the traces for a given target and antenna position
+    ant_name = "ant_r2_phi270"
+    target_xmax_to_get, target_zeniths_to_get = smiet_runner.target_xmaxs[1], smiet_runner.target_zeniths[1]
+
+    traces_geoce, times, _ = smiet_runner.get_traces(xmax=target_xmax_to_get, zenith=target_zeniths_to_get, ant_name=ant_name, geoce=True)
+
+    # get the spectrum
+    spect_geoce, freq = smiet_runner.get_spectrum(xmax=target_xmax_to_get, zenith=target_zeniths_to_get, ant_name=ant_name, geoce=True)
+
+    # get the fluence
+    fluences, ant_pos = smiet_runner.get_fluence(xmax=target_xmax_to_get, zenith=target_zeniths_to_get, geoce=False)
+
+    fig, ax = plt.subplots(1,1, figsize=(5,4))
+    sc = ax.scatter(
+        ant_pos[:, 0], ant_pos[:, 1],
+        c=fluences,
+        cmap='inferno',
+        edgecolor='white',
+        alpha=1.0,
+        vmin=0,
+        vmax=45  # modify as needed
+    )
+
+    ax.set_xlabel("vxB / m", fontsize=14)
+    ax.set_ylabel("vx(vxB) / m", fontsize=14)
+
+    ax.set_xlim(-200, 200)
+    ax.set_ylim(-200, 200)
+
+    ax.tick_params(axis='both', which='major', labelsize=12)
+
+    cbar = fig.colorbar(sc, ax=ax)
+    cbar.ax.set_ylabel("Fluence / eV m$^{-2}$", fontsize=16)
+    cbar.ax.tick_params(labelsize=12)
+
+
+Synthesising Manually
+---------------------
+If you need to have more control over the synthesis process, you can also use the lower-level classes directly. Here is a minimal example of how to do this, where the origin and target are both SlicedShowers (i.e. origin showers) loaded from HDF5 files.
+
+.. code-block:: python
+
+    from smiet.numpy import TemplateSynthesis, SlicedShower
+    
+    from smiet import units
+
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    # Selections (to be put in main)
+    ANT_DEBUG = 'ant_r2_phi270'
+    FREQ = [30, 500, 100]
+
+    # Variables
+    shower_path = '/path/to/origins/showers'
+    shower_origin = "000900"
+    shower_target = "000910"
+
+    origin = SlicedShower(f'{shower_path}/SIM{shower_origin}.hdf5')
+    target = SlicedShower(f'{shower_path}/SIM{shower_target}.hdf5')
+
+    synthesis = TemplateSynthesis(freq_ar=FREQ)
+
+    synthesis.make_template(origin)
+
+    total_geo_synth, total_ce_synth = synthesis.map_template(target)
+
+    geo_target, ce_target, start_target = target.get_trace_geoce(
+        ant_name, 
+        bandpass=[30 * units.MHz, 500 * units.MHz], 
+        return_start_time=True
+    )
+    target_time = np.arange(geo_target.shape[1]) * target.delta_t + start_target[0]
+
+    ant_idx = list(synthesis.get_antenna_names).index(ANT_DEBUG)
+
+    fig, ax = plt.subplots(1, 2, figsize=(12, 6))
+    ax = ax.flatten()
+
+    ax[0].plot(
+        target_time / units.ns,
+        np.sum(geo_target, axis=0) / (units.microvolt / units.m),
+        c='k', label='CoREAS',
+        alpha=0.5
+    )
+    ax[1].plot(
+        target_time / units.ns,
+        np.sum(ce_target, axis=0) / (units.microvolt / units.m),
+        c='k', label='CoREAS',
+        alpha=0.5
+    )
+
+    ax[0].plot(
+        origin_time[ant_idx],
+        total_geo_synth[ant_idx] / (units.microvolt / units.m),
+        '--',
+        c='magenta', label='Template Synthesis',
+    )
+    ax[1].plot(
+        origin_time[ant_idx],
+        total_ce_synth[ant_idx] / (units.microvolt / units.m),
+        '--',
+        c='magenta', label='Template Synthesis',
+    )
+
+    ax[0].set_ylabel(r'$E [\mu \mathrm{V}/\mathrm{m}]$', size=16)
+    ax[0].set_xlabel('Time [ns]')
+    ax[1].set_xlabel('Time [ns]')
+
+    ax[0].legend(fontsize=14)
+    ax[1].legend(fontsize=14)
+
+    ax[0].set_title('Geomagnetic component')
+    ax[1].set_title('Charge-excess component')

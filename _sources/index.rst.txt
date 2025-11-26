@@ -35,9 +35,29 @@ for the latest development branch.
 
 However, we recommend users to use the NumPy implementation unless there is a specific need for JAX, as the NumPy version is generally more straightforward to use and has fewer dependencies.
 
+Download
+--------
+
+To use SMIET, you will need to download pre-simulated templates or origin showers. For most general purpose usage, you can download the standard template library from: 
+
+.. code-block:: bash
+
+   wget https://bwsyncandshare.kit.edu/s/DrsbG27mkxtcetF
+
+(approximately 13 GB when unpacked). More extensive template libraries are currently in development. 
+
+Additionally, if you want to test with origin showers, you can download example origin showers from:
+
+.. code-block:: bash
+
+   wget https://homepage.iihe.ac.be/~mitjadesmet/origin_showers/SIM145024.hdf5
+   wget https://homepage.iihe.ac.be/~mitjadesmet/origin_showers/SIM145060.hdf5
+
+Make sure to place the downloaded files in a directory where you can easily access them when using the package.
+
 Examples 
 --------
-See :doc:`here <minimal_example>` for a minimal example of how to use the package. You can also look at `smiet-examples <https://gitlab.iap.kit.edu/kwatanabe/smiet-examples.git>`_ for more complete examples.
+See :doc:`here <examples/minimal_example>` for a minimal example of how to use the package. You can also look at :doc:`the examples section <examples/examples_index>` or the dedicated repository `smiet-examples <https://gitlab.iap.kit.edu/kwatanabe/smiet-examples.git>`_ for more complete examples.
 
 .. toctree::
    :maxdepth: 2
@@ -45,7 +65,7 @@ See :doc:`here <minimal_example>` for a minimal example of how to use the packag
 
    logging
    conventions_units
-   minimal_example
+   examples/examples_index
    template-synthesis/ts_index
    numpy/numpy_index
    jax/jax_index
@@ -66,6 +86,9 @@ Further publications
 Additional relevant publications:
 
    Desmet, M., Buitink, S., Huege, T., Butler, D., Engel, R., and Scholten, O., "Proof of principle for template synthesis approach for the radio emission from vertical extensive air showers", Astropart. Phys. 157 (2024) 102923, `doi:10.1016/j.astropartphys.2023.102923 <https://doi.org/10.1016/j.astropartphys.2023.102923>`_ , `arXiv:2307.02939 <https://arxiv.org/abs/2307.02939>`_ .
+
    Proceedings of `ARENA22 <https://pos.sissa.it/424/052/>`_
+
    Proceedings of `ICRC23 <https://pos.sissa.it/444/216/>`_
+
    Proceedings of `ARENA24 <https://pos.sissa.it/470/046/>`_

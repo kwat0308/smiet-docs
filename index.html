@@ -307,12 +307,12 @@
   
   
     <li class="md-nav__item">
-      <a href="minimal_example.html" class="md-nav__link">
+      <a href="examples/examples_index.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    <span>Minimal Example</span>
+    <span>Example Usages</span>
     
   </span>
   
@@ -485,6 +485,16 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Download</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#examples" class="md-nav__link">
     
     <span class="md-ellipsis">
@@ -550,8 +560,20 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 </code></pre></div>
 </div>
 <p>However, we recommend users to use the NumPy implementation unless there is a specific need for JAX, as the NumPy version is generally more straightforward to use and has fewer dependencies.</p>
+<h2 id="download">Download<a class="headerlink" href="#download" title="Link to this heading">¶</a></h2>
+<p>To use SMIET, you will need to download pre-simulated templates or origin showers. For most general purpose usage, you can download the standard template library from:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://bwsyncandshare.kit.edu/s/DrsbG27mkxtcetF
+</code></pre></div>
+</div>
+<p>(approximately 13 GB when unpacked). More extensive template libraries are currently in development.</p>
+<p>Additionally, if you want to test with origin showers, you can download example origin showers from:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://homepage.iihe.ac.be/~mitjadesmet/origin_showers/SIM145024.hdf5
+wget<span class="w"> </span>https://homepage.iihe.ac.be/~mitjadesmet/origin_showers/SIM145060.hdf5
+</code></pre></div>
+</div>
+<p>Make sure to place the downloaded files in a directory where you can easily access them when using the package.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
-<p>See <a class="reference internal" href="minimal_example.html"><span class="doc">here</span></a> for a minimal example of how to use the package. You can also look at <a class="reference external" href="https://gitlab.iap.kit.edu/kwatanabe/smiet-examples.git">smiet-examples</a> for more complete examples.</p>
+<p>See <a class="reference internal" href="examples/minimal_example.html"><span class="doc">here</span></a> for a minimal example of how to use the package. You can also look at <a class="reference internal" href="examples/examples_index.html"><span class="doc">the examples section</span></a> or the dedicated repository <a class="reference external" href="https://gitlab.iap.kit.edu/kwatanabe/smiet-examples.git">smiet-examples</a> for more complete examples.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Sections in this documentation:</span></p>
 <ul>
@@ -561,9 +583,13 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <li class="toctree-l2"><a class="reference internal" href="conventions_units.html#units">Units</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="minimal_example.html">Minimal Example</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="minimal_example.html#using-smietrun">Using SMIETRun</a></li>
-<li class="toctree-l2"><a class="reference internal" href="minimal_example.html#synthesising-manually">Synthesising Manually</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples/examples_index.html">Example Usages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/minimal_example.html">Minimal Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/basic_examples/run_with_target_showers.html">Running SMIET</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/basic_examples/run_with_coreas_showers.html">Running SMIET with CoREAS simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/basic_examples/running_single_synthesis.html">Synthesising a single shower</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/advanced_examples/manipulating_single_synthesis.html">Using TemplateSynthesis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/advanced_examples/using_jax.html">Using the JAX version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="template-synthesis/ts_index.html">A User’s Guide to Template Synthesis</a><ul>
@@ -605,10 +631,10 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <h2 id="further-publications">Further publications<a class="headerlink" href="#further-publications" title="Link to this heading">¶</a></h2>
 <p>Additional relevant publications:</p>
 <blockquote>
-<div><p>Desmet, M., Buitink, S., Huege, T., Butler, D., Engel, R., and Scholten, O., “Proof of principle for template synthesis approach for the radio emission from vertical extensive air showers”, Astropart. Phys. 157 (2024) 102923, <a class="reference external" href="https://doi.org/10.1016/j.astropartphys.2023.102923">doi:10.1016/j.astropartphys.2023.102923</a> , <a class="reference external" href="https://arxiv.org/abs/2307.02939">arXiv:2307.02939</a> .
-Proceedings of <a class="reference external" href="https://pos.sissa.it/424/052/">ARENA22</a>
-Proceedings of <a class="reference external" href="https://pos.sissa.it/444/216/">ICRC23</a>
-Proceedings of <a class="reference external" href="https://pos.sissa.it/470/046/">ARENA24</a></p>
+<div><p>Desmet, M., Buitink, S., Huege, T., Butler, D., Engel, R., and Scholten, O., “Proof of principle for template synthesis approach for the radio emission from vertical extensive air showers”, Astropart. Phys. 157 (2024) 102923, <a class="reference external" href="https://doi.org/10.1016/j.astropartphys.2023.102923">doi:10.1016/j.astropartphys.2023.102923</a> , <a class="reference external" href="https://arxiv.org/abs/2307.02939">arXiv:2307.02939</a> .</p>
+<p>Proceedings of <a class="reference external" href="https://pos.sissa.it/424/052/">ARENA22</a></p>
+<p>Proceedings of <a class="reference external" href="https://pos.sissa.it/444/216/">ICRC23</a></p>
+<p>Proceedings of <a class="reference external" href="https://pos.sissa.it/470/046/">ARENA24</a></p>
 </div></blockquote>
 
 

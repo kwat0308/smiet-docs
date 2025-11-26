@@ -1,0 +1,14 @@
+Example Usages
+==============
+
+This section provides example usage of the SMIET package. If you want to test them yourself, you can also refer to the `smiet-examples <https://gitlab.iap.kit.edu/kwatanabe/smiet-examples.git>`_ repository.
+
+.. toctree::
+    :maxdepth: 2
+
+    minimal_example
+    basic_examples/run_with_target_showers
+    basic_examples/run_with_coreas_showers
+    basic_examples/running_single_synthesis
+    advanced_examples/manipulating_single_synthesis
+    advanced_examples/using_jax

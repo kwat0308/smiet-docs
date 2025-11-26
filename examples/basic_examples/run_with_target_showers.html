@@ -1,0 +1,1294 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../minimal_example.html">
+      
+      
+        <link rel="next" href="run_with_coreas_showers.html">
+      
+      
+      <link rel="icon" href="">
+    
+    
+      
+        <title>Running SMIET - SMIET 0.7 documentation</title>
+      
+    
+    
+      
+        
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.acf80fe7f4d9ef9e2.min.css?v=9e56d0d2" />
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#setting-up-paths" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="SMIET 0.7 documentation" class="md-header__button md-logo" aria-label="SMIET 0.7 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SMIET 0.7 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Running SMIET
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="SMIET 0.7 documentation" class="md-nav__button md-logo" aria-label="SMIET 0.7 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+    </a>
+    SMIET 0.7 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Sections in this documentation:<wbr></span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Sections in this documentation:<wbr></span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>How to use logging in this package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conventions_units.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Conventions in this package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../examples_index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    <span>Example Usages</span>
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Example Usages</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minimal_example.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Minimal Example</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    <span>Running SMIET</span>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Running SMIET</span>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-paths" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Setting up paths</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-the-object" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Initializing the object</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initializing the object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-generate-the-template-library" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span><wbr>(Optional) :<wbr> Generate the template library</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-templates" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Loading the templates</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-target-showers" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating target showers</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthesizing-showers" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Synthesizing showers</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-synthesized-quantities" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Accessing synthesized quantities</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing synthesized quantities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traces" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Traces</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Spectra</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluence" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Fluence</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="run_with_coreas_showers.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Running SMIET with Co<wbr>REAS simulations</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="running_single_synthesis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Synthesising a single shower</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced_examples/manipulating_single_synthesis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Using Template<wbr>Synthesis</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced_examples/using_jax.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Using the JAX version</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../template-synthesis/ts_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>A User’s Guide to Template Synthesis</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numpy/numpy_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Num<wbr>Py module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jax/jax_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>JAX module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../corsika/corsika_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Tools for CORSIKA/Co<wbr>REAS</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Release notes</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-paths" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Setting up paths</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-the-object" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Initializing the object</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Initializing the object">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-generate-the-template-library" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span><wbr>(Optional) :<wbr> Generate the template library</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-templates" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Loading the templates</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-target-showers" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating target showers</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#synthesizing-showers" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Synthesizing showers</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accessing-synthesized-quantities" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Accessing synthesized quantities</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accessing synthesized quantities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#traces" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Traces</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spectra" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Spectra</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluence" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Fluence</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                
+                
+                  
+
+
+<h1 id="running-smiet">Running SMIET<a class="headerlink" href="#running-smiet" title="Link to this heading">¶</a></h1>
+<p>This is an example notebook on how to run SMIET using the main
+functionality SMIETRun.</p>
+<p>For most intensive purposes, using this module is sufficient.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">smiet</span><span class="w"> </span><span class="kn">import</span> <span class="n">SMIETRun</span><span class="p">,</span> <span class="n">units</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># for plotting routines</span>
+</code></pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;smiet&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the top-level logger to DEBUG</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="setting-up-paths">Setting up paths<a class="headerlink" href="#setting-up-paths" title="Link to this heading">¶</a></h2>
+<p>For this version, the following paths are required:</p>
+<ul class="simple">
+<li><p>the path to where the templates are loaded</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">path_to_templates</span> <span class="o">=</span> <span class="s2">&quot;/home/kwatanabe/Projects/radio-ift/radio_resources/template_synthesis/origin_library/templates&quot;</span>
+</code></pre></div>
+</div>
+<h2 id="initializing-the-object">Initializing the object<a class="headerlink" href="#initializing-the-object" title="Link to this heading">¶</a></h2>
+<p>The SMIETRun object is initialized with the following: - site : the site
+in which we perform the synthesis. Currently, base, lofar, and auger are
+supported, with more to come! - backend : this allows you to choose
+whether to run smiet with the numpy backend (recommended!) or with jax
+(disabled for now, as it has not yet been tested).</p>
+<p>Under the hood, the numpy or jax version of smiet will be loaded with
+the given site parameters fixed.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">smiet_runner</span> <span class="o">=</span> <span class="n">SMIETRun</span><span class="p">(</span>
+    <span class="n">site</span><span class="o">=</span><span class="s2">&quot;base&quot;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">&quot;numpy&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h3 id="optional-generate-the-template-library">(Optional) : Generate the template library<a class="headerlink" href="#optional-generate-the-template-library" title="Link to this heading">¶</a></h3>
+<p>Once you have generated simulations from the origin shower library, it
+is most convenient for you to generate a template library, which can
+then be loaded / unloaded with ease later on.</p>
+<p>The template libraries themselves will be provided for the users to
+download, making this step optional. However, if you have generated your
+own origin shower library, then this step is necessary.</p>
+<p>To run this, provide the repository in which the origin library (the
+hdf5 files) are located in <code class="docutils literal notranslate"><span class="pre">origin_shower_repo</span></code>, and the repository in
+which you want to store the templates in <code class="docutils literal notranslate"><span class="pre">template_repo</span></code>. The
+directory structure will automatically be built to be separated by xmax
+and zenith bins, set by the user.</p>
+<p><strong>NOTE</strong> : the generation of the templates can take a while. Take a cup
+of coffee and chat with your colleagues while this is running :D</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># smiet_runner.generate_templates(</span>
+<span class="c1">#     origin_shower_repo = &quot;/home/kwatanabe/Projects/radio-ift/radio_resources/template_synthesis/origin_library/base&quot;,</span>
+<span class="c1">#     template_repo = &quot;/home/kwatanabe/Projects/radio-ift/radio_resources/template_synthesis/origin_library/templates&quot;</span>
+<span class="c1"># )</span>
+</code></pre></div>
+</div>
+<h2 id="loading-the-templates">Loading the templates<a class="headerlink" href="#loading-the-templates" title="Link to this heading">¶</a></h2>
+<p>Here, all necessary templates which will be used for the analysis can be
+loaded. To load the templates, provide the repository in which the
+templates are located in <code class="docutils literal notranslate"><span class="pre">template_repo</span></code>.</p>
+<p>We give the option to provide a range of xmax and zenith values in which
+the templates should be loaded, to avoid load unnecessary values of Xmax
+or zenith angles. This can be performed by giving: - a tuple of
+(xmax_min, xmax_max) in <code class="docutils literal notranslate"><span class="pre">xmax_range</span></code> - a tuple of (zenith_min,
+zenith_max) in <code class="docutils literal notranslate"><span class="pre">zenith_range</span></code> If nothing is provided, then the full
+range of available templates will be loaded instead.</p>
+<p>Additionally, with the <code class="docutils literal notranslate"><span class="pre">randomize</span></code> argument set to True, one of the
+simulated origin showers from the configuration will be selected at
+random. If set to False, the first one will always be selected.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># load templates</span>
+<span class="n">smiet_runner</span><span class="o">.</span><span class="n">load_templates</span><span class="p">(</span>
+    <span class="n">template_repo</span> <span class="o">=</span> <span class="n">path_to_templates</span><span class="p">,</span>
+    <span class="n">xmax_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">700</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span>
+    <span class="n">zenith_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">36</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span>
+    <span class="n">randomize</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Note that the properties of the origin showers can be extracted using
+<code class="docutils literal notranslate"><span class="pre">smiet_runner.origin_properties()</span></code>.</p>
+<p>Alternatively, the xmax and zenith values for the origin shower are
+given by <code class="docutils literal notranslate"><span class="pre">smiet_runner.origin_xmaxs</span></code> and
+<code class="docutils literal notranslate"><span class="pre">smiet_runner.origin_zeniths</span></code> respectively.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">smiet_runner</span><span class="o">.</span><span class="n">origin_xmaxs</span><span class="p">,</span> <span class="n">smiet_runner</span><span class="o">.</span><span class="n">origin_zeniths</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="p">[</span> <span class="mf">697.21</span>  <span class="mf">704.82</span>  <span class="mf">751.53</span>  <span class="mf">804.07</span>  <span class="mf">880.63</span>  <span class="mf">889.21</span> <span class="mf">1001.7</span>  <span class="mf">1006.4</span> <span class="p">]</span> <span class="p">[</span><span class="mf">36.</span> <span class="mf">39.</span> <span class="mf">39.</span> <span class="mf">36.</span> <span class="mf">36.</span> <span class="mf">39.</span> <span class="mf">39.</span> <span class="mf">36.</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<h2 id="generating-target-showers">Generating target showers<a class="headerlink" href="#generating-target-showers" title="Link to this heading">¶</a></h2>
+<p>The target showers are the showers that will be synthesized with SMIET.
+These can be set in two ways:</p>
+<ul class="simple">
+<li><p>from user-generated longitudinal profiles</p></li>
+<li><p>from a set of simulated showers from CoREAS</p></li>
+</ul>
+<p>We will show how to generate target showers manually here, and show its
+usability with CoREAS showers in another example notebook.</p>
+<p>Here, we define the Gaisser-Hillas function for the longitudinal
+profile. In the future, a package that can self-consistently generate
+various kinds of longitudinal profiles will be implemented, removing the
+need for this function.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gaisser_hillas_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">nmax</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">lmbda</span><span class="p">):</span>
+    <span class="n">power</span> <span class="o">=</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="n">lmbda</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span>
+        <span class="n">nmax</span>
+        <span class="o">*</span> <span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">x0</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">x0</span><span class="p">))</span> <span class="o">**</span> <span class="n">power</span>
+        <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">((</span><span class="n">xmax</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">lmbda</span><span class="p">)</span>
+    <span class="p">),</span> <span class="mf">0.0</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">result</span>
+</code></pre></div>
+</div>
+<p>The inputs require the following: - a grid of grammage. This need not be
+the same as the origin shower - a list of longitudinal profiles
+generated with the same grammage grid - an array of zenith angles</p>
+<p>Optionally, one can: - provide an array of azimuth angles - provide an
+array of cores</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># now generate some target longitudinal profiles</span>
+<span class="n">target_xmaxs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">800</span><span class="p">,</span> <span class="mf">710.0</span><span class="p">])</span>
+<span class="n">target_zeniths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">37.5</span><span class="p">,</span> <span class="mf">38.5</span><span class="p">]))</span>
+
+<span class="n">grammage_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">long_profs</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">xmax</span> <span class="ow">in</span> <span class="n">target_xmaxs</span><span class="p">:</span>
+    <span class="n">long_profs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">gaisser_hillas_function</span><span class="p">(</span>
+        <span class="n">grammage_grid</span><span class="p">,</span> <span class="n">nmax</span> <span class="o">=</span> <span class="mf">1e8</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">xmax</span><span class="p">,</span> <span class="n">lmbda</span> <span class="o">=</span> <span class="mf">70.0</span>
+    <span class="p">))</span>
+</code></pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">smiet_runner</span><span class="o">.</span><span class="n">generate_target_showers</span><span class="p">(</span>
+    <span class="n">target_grammage</span> <span class="o">=</span> <span class="n">grammage_grid</span><span class="p">,</span>
+    <span class="n">target_longs</span> <span class="o">=</span> <span class="n">long_profs</span><span class="p">,</span>
+    <span class="n">target_zeniths</span> <span class="o">=</span> <span class="n">target_zeniths</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Similar to the origin showers, the properties of the target showers can
+be extracted using <code class="docutils literal notranslate"><span class="pre">smiet_runner.target_properties()</span></code>.</p>
+<p>The xmax and zenith values for the target showers are given by
+<code class="docutils literal notranslate"><span class="pre">smiet_runner.target_xmaxs</span></code> and <code class="docutils literal notranslate"><span class="pre">smiet_runner.target_zeniths</span></code>
+respectively.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">smiet_runner</span><span class="o">.</span><span class="n">target_xmaxs</span><span class="p">,</span> <span class="n">smiet_runner</span><span class="o">.</span><span class="n">target_zeniths</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="p">[</span><span class="mf">800.00000115</span> <span class="mf">709.9999972</span> <span class="p">]</span> <span class="p">[</span><span class="mf">37.5</span> <span class="mf">38.5</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<h2 id="synthesizing-showers">Synthesizing showers<a class="headerlink" href="#synthesizing-showers" title="Link to this heading">¶</a></h2>
+<p>The main code here is the synthesis of the showers. This will (for each
+target shower):</p>
+<ul class="simple">
+<li><p>find the origin shower with the closest Xmax values (larger or
+smaller) and zenith angle (smaller)</p></li>
+<li><p>Synthesise the shower in the vx(vxB) component with the origin shower
+with Xmax &lt; target Xmax</p></li>
+<li><p>Reconstruct the star-shape pattern from the synthesized traces</p></li>
+</ul>
+<p>Depending on the selected options, additional features can be enabled: -
+<code class="docutils literal notranslate"><span class="pre">interpolation</span></code> : if True, then synthesis with origin shower &gt; target
+Xmax will additionally performed, and the resulting synthesised trace
+will be a weighted result between both traces - <code class="docutils literal notranslate"><span class="pre">slices</span></code> : If True,
+then traces from all slices will be saved. Otherwise only the trace at
+the ground will be stored.</p>
+<p>The synthesised traces are stored as class objects via
+<code class="docutils literal notranslate"><span class="pre">smiet_runner.synth_traces</span></code>.</p>
+<p><strong>Note:</strong> the synthesis scales with the number of showers you want to
+synthesise. Each synthesis takes ~ 10 seconds.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">smiet_runner</span><span class="o">.</span><span class="n">synthesize_showers</span><span class="p">(</span><span class="n">slices</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code>[93m2025-11-25 23:34:20 - WARNING - smiet.core.SMIETRun - synthesize_showers - Synthesis with slices=True is enabled. Setting interpolation=False since it does not work with interpolated synthesis.[0m
+</code></pre></div>
+</div>
+<h2 id="accessing-synthesized-quantities">Accessing synthesized quantities<a class="headerlink" href="#accessing-synthesized-quantities" title="Link to this heading">¶</a></h2>
+<p>To extract the synthesized showers, we can either: - get the traces -
+get the spectrum - or get the fluence</p>
+<p>The traces and spectra is extracted for a given target xmax and zenith
+angle, which can be indexed through <code class="docutils literal notranslate"><span class="pre">smiet_runner.target_xmaxs</span></code> and
+<code class="docutils literal notranslate"><span class="pre">smiet_runner.target_zeniths</span></code>. The following options are additionally
+available: - <code class="docutils literal notranslate"><span class="pre">ant_name</span></code> : a specific antenna label, following the
+names from <code class="docutils literal notranslate"><span class="pre">smiet_runner.antenna_labels</span></code> can be set to get a single
+antenna position. Setting this to <code class="docutils literal notranslate"><span class="pre">None</span></code> will give all antennas. -
+<code class="docutils literal notranslate"><span class="pre">geoce</span></code> : If true, then the geomagnetic / charge-excess polarisation
+will be returned, otherwise the vxB / vx(vxB) polarisation will be
+returned instead. - <code class="docutils literal notranslate"><span class="pre">slice_grammage</span></code> : the traces at a specific slice
+can be returned if <code class="docutils literal notranslate"><span class="pre">slices=True</span></code> is set when synthesising the showers.
+If None, then only the one at ground will be stored.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">ant_name</span> <span class="o">=</span> <span class="s2">&quot;ant_r75_phi315&quot;</span>  <span class="c1"># an example. the antennas are labelled as `ant_r&lt;radius&gt;_phi&lt;angle in degree&gt;`.</span>
+</code></pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">target_xmax_to_get</span><span class="p">,</span> <span class="n">target_zeniths_to_get</span> <span class="o">=</span> <span class="n">smiet_runner</span><span class="o">.</span><span class="n">target_xmaxs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">smiet_runner</span><span class="o">.</span><span class="n">target_zeniths</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</code></pre></div>
+</div>
+<h3 id="traces">Traces<a class="headerlink" href="#traces" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">get_traces</span></code> function returns: - traces : in shape of (Npol, Nant,
+Nsamples) if <code class="docutils literal notranslate"><span class="pre">ant_name</span> <span class="pre">=</span> <span class="pre">None</span></code>, otherwise (Npol, Nsamples) - times :
+in shape of (Nant, Nsamples) if <code class="docutils literal notranslate"><span class="pre">ant_name</span> <span class="pre">=</span> <span class="pre">None</span></code>, otherwise
+(Nsamples) - antenna positions in the shower plane, in shape of (Nant)
+or () if <code class="docutils literal notranslate"><span class="pre">ant_name</span> <span class="pre">!=</span> <span class="pre">None</span></code>.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">units</span></code> module is necessary to appropriately convert to
+the desired units.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">traces_geoce</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">smiet_runner</span><span class="o">.</span><span class="n">get_traces</span><span class="p">(</span>
+    <span class="n">xmax</span><span class="o">=</span><span class="n">target_xmax_to_get</span><span class="p">,</span>
+    <span class="n">zenith</span><span class="o">=</span><span class="n">target_zeniths_to_get</span><span class="p">,</span>
+    <span class="n">ant_name</span><span class="o">=</span><span class="n">ant_name</span><span class="p">,</span>
+    <span class="n">geoce</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">slice_grammage</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;wspace&quot;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">})</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">[:]</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">ns</span><span class="p">,</span> <span class="n">traces_geoce</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">/</span> <span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">micro</span>  <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">volt</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">m</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">times</span><span class="p">[:]</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">ns</span><span class="p">,</span> <span class="n">traces_geoce</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">/</span> <span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">micro</span>  <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">volt</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">m</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [ns]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time [ns]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E_\mathrm</span><span class="si">{GEO}</span><span class="s2">$ [μV/m]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$E_\mathrm</span><span class="si">{CE}</span><span class="s2">$ [μV/m]&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time traces at </span><span class="si">{</span><span class="n">ant_name</span><span class="si">}</span><span class="s2">, slice=800 g/cm²&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<img alt="../../_images/run_with_target_showers_28_0.png" src="../../_images/run_with_target_showers_28_0.png" />
+<h3 id="spectra">Spectra<a class="headerlink" href="#spectra" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>spectrum : the real-component of the spectrum, both amplitude and
+phase (traces + FFT with <code class="docutils literal notranslate"><span class="pre">ortho</span></code> normalisation) in shapes of (Npol,
+Nant, Nfreqs) or (Npol, Nfreqs)</p></li>
+<li><p>frequencies : the frequency grid, in internal units with shape of
+(Nfreqs, )</p></li>
+</ul>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">spect_geoce</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">smiet_runner</span><span class="o">.</span><span class="n">get_spectrum</span><span class="p">(</span>
+    <span class="n">xmax</span><span class="o">=</span><span class="n">target_xmax_to_get</span><span class="p">,</span>
+    <span class="n">zenith</span><span class="o">=</span><span class="n">target_zeniths_to_get</span><span class="p">,</span>
+    <span class="n">ant_name</span><span class="o">=</span><span class="n">ant_name</span><span class="p">,</span>
+    <span class="n">geoce</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">slice_grammage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> <span class="n">gridspec_kw</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;wspace&quot;</span><span class="p">:</span><span class="mf">0.4</span><span class="p">})</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spect_geoce</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span> <span class="o">/</span> <span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">micro</span>  <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">volt</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">m</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spect_geoce</span><span class="p">[</span><span class="mi">1</span><span class="p">,:])</span> <span class="o">/</span> <span class="p">(</span><span class="n">units</span><span class="o">.</span><span class="n">micro</span>  <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">volt</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">m</span> <span class="o">/</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency [MHz]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency [MHz]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tilde</span><span class="si">{E}</span><span class="s2">_\mathrm</span><span class="si">{vxB}</span><span class="s2">$ [μV/m/MHz]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\tilde</span><span class="si">{E}</span><span class="s2">_\mathrm{vx(vxB)}$ [μV/m/MHz]&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Spectrum at </span><span class="si">{</span><span class="n">ant_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<img alt="../../_images/run_with_target_showers_31_0.png" src="../../_images/run_with_target_showers_31_0.png" />
+<h3 id="fluence">Fluence<a class="headerlink" href="#fluence" title="Link to this heading">¶</a></h3>
+<p>The energy fluence (in units of eV/m^2) can additionally be extracted
+with similar arguments. The antenna positions in the shower plane are
+also returned for easy access for e.g. scatter plots.</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">fluences</span><span class="p">,</span> <span class="n">ant_pos</span> <span class="o">=</span> <span class="n">smiet_runner</span><span class="o">.</span><span class="n">get_fluence</span><span class="p">(</span>
+    <span class="n">xmax</span><span class="o">=</span><span class="n">target_xmax_to_get</span><span class="p">,</span>
+    <span class="n">zenith</span><span class="o">=</span><span class="n">target_zeniths_to_get</span><span class="p">,</span>
+    <span class="n">geoce</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">slice_grammage</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">ant_pos</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">ant_pos</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="n">c</span><span class="o">=</span><span class="n">fluences</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;inferno&#39;</span><span class="p">,</span>
+    <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="mi">35</span>  <span class="c1"># modify as needed</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;vxB / m&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;vx(vxB) / m&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">sc</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Fluence / eV m$^{-2}$&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<img alt="../../_images/run_with_target_showers_34_0.png" src="../../_images/run_with_target_showers_34_0.png" />
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2025, Mitja Desmet, Keito Watanabe.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    8.2.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+        <script src="../../_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+    
+  </body>
+</html>

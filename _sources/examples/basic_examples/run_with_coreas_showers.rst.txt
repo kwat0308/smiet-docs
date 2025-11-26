@@ -1,0 +1,405 @@
+Running SMIET with CoREAS simulations
+-------------------------------------
+
+This example notebook will show how you can run SMIET comparing with
+CoREAS simulated showers.
+
+.. code:: ipython3
+
+    from smiet import SMIETRun, units
+    import numpy as np
+    
+    import os  # to configure paths for coreas simulations
+    import matplotlib.pyplot as plt  # for plotting routines
+
+Setting up paths
+~~~~~~~~~~~~~~~~
+
+The following paths need to be provided:
+
+- the path to where you store the templates
+- the path where you store the coreas simulations
+
+.. code:: ipython3
+
+    path_to_templates = "/home/kwatanabe/Projects/radio-ift/radio_resources/template_synthesis/origin_library/templates"
+    path_to_coreas_sims = "/home/kwatanabe/Projects/radio-ift/radio_resources/lofar/hdf5_sims/62804598/0/proton"
+
+Initializing the object
+~~~~~~~~~~~~~~~~~~~~~~~
+
+The SMIETRun object is initialized with the following: - site : the site
+in which we perform the synthesis. Currently, base, lofar, and auger are
+supported, with more to come! - backend : this allows you to choose
+whether to run smiet with the numpy backend (recommended!) or with jax
+(currently disabled as it is not yet tested).
+
+Under the hood, the numpy or jax version of smiet will be loaded with
+the given site parameters fixed.
+
+.. code:: ipython3
+
+    smiet_runner = SMIETRun(
+        site="base", backend="numpy"
+    )
+
+Loading the templates
+^^^^^^^^^^^^^^^^^^^^^
+
+Here, all necessary templates which will be used for the analysis can be
+loaded. To load the templates, provide the repository in which the
+templates are located in ``template_repo``.
+
+We give the option to provide a range of xmax and zenith values in which
+the templates should be loaded, to avoid load unnecessary values of Xmax
+or zenith angles. This can be performed by giving: - a tuple of
+(xmax_min, xmax_max) in ``xmax_range`` - a tuple of (zenith_min,
+zenith_max) in ``zenith_range`` If nothing is provided, then the full
+range of available templates will be loaded instead.
+
+Additionally, with the ``randomize`` argument set to True, one of the
+simulated origin showers from the configuration will be selected at
+random. If set to False, the first one will always be selected.
+
+.. code:: ipython3
+
+    # load templates
+    smiet_runner.load_templates(
+        template_repo = path_to_templates,
+        xmax_range = (600, 1200),
+        zenith_range = (40, 46),
+        randomize = False
+    )
+
+Note that the properties of the origin showers can be extracted using
+``smiet_runner.origin_properties()``.
+
+Alternatively, the xmax and zenith values for the origin shower are
+given by ``smiet_runner.origin_xmaxs`` and
+``smiet_runner.origin_zeniths`` respectively.
+
+.. code:: ipython3
+
+    print(smiet_runner.origin_xmaxs, smiet_runner.origin_zeniths)
+
+
+.. parsed-literal::
+
+    [ 578.88  634.83  708.61  718.95  797.03  798.17  874.47  898.24  957.28
+      988.08 1076.1  1141.4  1207.6  1211.5 ] [42. 45. 42. 45. 42. 45. 42. 45. 42. 45. 45. 42. 45. 42.]
+
+
+Generating target showers from CoREAS simulations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Here we will load coreas showers from a given coreas shower repository.
+This should contain a set of simulated showers that vary in shower
+properties. However the site must be the same (magnetic field,
+atmosphere etc).
+
+One can also load a single CoREAS simulation directly, but it must be
+contained as a list.
+
+.. code:: ipython3
+
+    smiet_runner.load_coreas_showers(
+        coreas_shower_paths = [
+            os.path.join(path_to_coreas_sims, filepath) 
+            for filepath in os.listdir(path_to_coreas_sims)
+        ]
+    )
+
+
+.. parsed-literal::
+
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.io.CoreasShower - __init__ - Setting core z-coordinate to be observation level at 7.6000000000000005 m.[0m
+
+
+Similar to the origin showers, the properties of the target showers can
+be extracted using ``smiet_runner.target_properties()``.
+
+The xmax and zenith values for the target showers are given by
+``smiet_runner.target_xmaxs`` and ``smiet_runner.target_zeniths``
+respectively.
+
+.. code:: ipython3
+
+    print(smiet_runner.target_xmaxs, smiet_runner.target_zeniths)
+
+
+.. parsed-literal::
+
+    [586.69 899.13 724.77 801.9  683.5  744.78 688.34 708.7  836.44 770.02
+     866.61 696.77 719.65 706.1  698.69 701.83 613.83 649.1  719.11 681.9
+     681.  ] [42.76506464 42.76506464 42.76506464 42.76506464 42.76506464 42.76506464
+     42.76506464 42.76506464 42.76506464 42.76506464 42.76506464 42.76506464
+     42.76506464 42.76506464 42.76506464 42.76506464 42.76506464 42.76506464
+     42.76506464 42.76506464 42.76506464]
+
+
+Synthesising the showers
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+As with the example with target showers, one can easily synthesize
+showers with a single command.
+
+.. code:: ipython3
+
+    smiet_runner.synthesize_showers()
+
+
+.. parsed-literal::
+
+    [93m2025-11-25 11:25:47 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:25:55 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:01 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:06 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:11 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:17 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:22 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:25 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:33 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:38 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:43 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:49 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:54 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:26:59 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:27:05 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:27:10 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:27:13 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:27:21 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:27:26 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:27:31 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+    [93m2025-11-25 11:27:37 - WARNING - smiet.numpy.synthesis.TemplateSynthesis - map_template_to_slices - Target zenith angle 0.7463911828415821 is larger than the template zenith angle 0.7330382858376184. This will probably lead to the last slices not being synthesised. [0m
+
+
+Extracting Synthesised quantities
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As before, the traces, spectra, and fluences can be extracted with the
+same functionalities.
+
+.. code:: ipython3
+
+    ant_name = "ant_r2_phi270"
+    target_xmax_to_get, target_zeniths_to_get = smiet_runner.target_xmaxs[1], smiet_runner.target_zeniths[1]
+
+.. code:: ipython3
+
+    traces_geoce, times, _ = smiet_runner.get_traces(xmax=target_xmax_to_get, zenith=target_zeniths_to_get, ant_name=ant_name, geoce=True)
+
+
+.. parsed-literal::
+
+    [93m2025-11-25 11:27:39 - WARNING - smiet.core.SMIETRun - get_traces - Traces were only synthesised at ground level. Ignoring provided slice_grammage and returning ground level traces.[0m
+
+
+.. code:: ipython3
+
+    fig, ax = plt.subplots(2,1, figsize=(6,8))
+    ax[0].plot(times[:] / units.ns, traces_geoce[0,:] / (units.micro  * units.volt / units.m))
+    ax[1].plot(times[:] / units.ns, traces_geoce[1,:] / (units.micro  * units.volt / units.m))
+    ax[1].set_xlabel("Time [ns]")
+    ax[0].set_ylabel(r"$E_\mathrm{GEO}$ [μV/m]")
+    ax[1].set_ylabel(r"$E_\mathrm{CE}$ [μV/m]")
+    
+    ax[0].set_title(f"Time traces at {ant_name}")
+    ax[0].grid(True, which="both", ls="--", alpha=0.5)
+    ax[1].grid(True, which="both", ls="--", alpha=0.5)
+
+
+
+
+.. image:: run_with_coreas_showers_files/run_with_coreas_showers_19_0.png
+
+
+.. code:: ipython3
+
+    spect_geoce, freq = smiet_runner.get_spectrum(xmax=target_xmax_to_get, zenith=target_zeniths_to_get, ant_name=ant_name, geoce=True)
+
+
+.. parsed-literal::
+
+    [93m2025-11-25 11:27:40 - WARNING - smiet.core.SMIETRun - get_traces - Traces were only synthesised at ground level. Ignoring provided slice_grammage and returning ground level traces.[0m
+
+
+.. code:: ipython3
+
+    fig, ax = plt.subplots(2,1, figsize=(6,8))
+    ax[0].plot(freq / units.MHz, np.abs(spect_geoce[0,:]) / (units.micro  * units.volt / units.m / units.MHz))
+    ax[1].plot(freq / units.MHz, np.abs(spect_geoce[1,:]) / (units.micro  * units.volt / units.m / units.MHz))
+    ax[1].set_xlabel("Frequency [MHz]")
+    ax[0].set_xlim(0, 500)
+    ax[1].set_xlim(0, 500)
+    ax[0].set_ylabel(r"$\tilde{E}_\mathrm{vxB}$ [μV/m/MHz]")
+    ax[1].set_ylabel(r"$\tilde{E}_\mathrm{vx(vxB)}$ [μV/m/MHz]")
+    
+    ax[0].set_title(f"Spectrum at {ant_name}")
+    ax[0].grid(True, which="both", ls="--", alpha=0.5)
+    ax[1].grid(True, which="both", ls="--", alpha=0.5)
+
+
+
+
+.. image:: run_with_coreas_showers_files/run_with_coreas_showers_21_0.png
+
+
+.. code:: ipython3
+
+    fluences, ant_pos = smiet_runner.get_fluence(xmax=target_xmax_to_get, zenith=target_zeniths_to_get, geoce=False)
+
+
+.. parsed-literal::
+
+    [93m2025-11-25 11:27:40 - WARNING - smiet.core.SMIETRun - get_traces - Traces were only synthesised at ground level. Ignoring provided slice_grammage and returning ground level traces.[0m
+
+
+.. code:: ipython3
+
+    fig, ax = plt.subplots(1,1, figsize=(5,4))
+    sc = ax.scatter(
+        ant_pos[:, 0], ant_pos[:, 1],
+        c=fluences,
+        cmap='inferno',
+        edgecolor='white',
+        alpha=1.0,
+        vmin=0,
+        vmax=45  # modify as needed
+    )
+    
+    ax.set_xlabel("vxB / m", fontsize=14)
+    ax.set_ylabel("vx(vxB) / m", fontsize=14)
+    
+    ax.set_xlim(-200, 200)
+    ax.set_ylim(-200, 200)
+    
+    ax.tick_params(axis='both', which='major', labelsize=12)
+    
+    cbar = fig.colorbar(sc, ax=ax)
+    cbar.ax.set_ylabel("Fluence / eV m$^{-2}$", fontsize=16)
+    cbar.ax.tick_params(labelsize=12)
+
+
+
+.. image:: run_with_coreas_showers_files/run_with_coreas_showers_23_0.png
+
+
+Comparing with CoREAS simulated results
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The true traces / spectra / fluence from the CoREAS simulated results
+can be obtained through ``smiet_runner.get_truths()``. This is a
+functionality only enabled for CoREAS simulations. The traces are
+already bandpass filtered to the given frequency range valid for
+``SMIET``.
+
+In addition to the target Xmax and zenith angle, the following can be
+provided: - ``mode`` : to either get the traces ``'traces'``, spectrum
+``'spectrum'``, or the fluence ``'fluence'``. Setting with ``fluence``
+will return the true fluence and antenna positions (in shower plane),
+while the other options will return the traces (spectrum), times
+(frequencies) and the antenna positions in shower plane. - ``geoce`` :
+as with the synthesised showers, the quantities can be returned in
+GEO/CE polarisation of vxB/vx(vxB) polarisation.
+
+The traces and spectra, unlike the synthesised counterpart, will return
+**all** antenna positions.
+
+**NOTE:**
+
+As the antenna positions in CoREAS need not be the same as the ones in
+the origin shower, a direct trace-by-trace comparison cannot be
+performed. As such, the positions in CoREAS != synthesised positions.
+
+To perform a direct comparison at this stage, it is best to use the
+fluence map and visually compare. For a direct trace-to-trace
+comparison, you can use the cr-pulse-interpolator, which is shown in
+another example notebook.
+
+.. code:: ipython3
+
+    spect_coreas, freq_grid_coreas, ant_pos_coreas = smiet_runner.get_truths(xmax=target_xmax_to_get, zenith=target_zeniths_to_get, mode="spectrum", geoce=True)
+
+.. code:: ipython3
+
+    radial_distances = np.sqrt(ant_pos_coreas[:,0]**2 + ant_pos_coreas[:,1]**2)
+    ang_distances = np.arctan2(ant_pos_coreas[:,1], ant_pos_coreas[:,0]) * 180 / np.pi
+
+.. code:: ipython3
+
+    ant_idx = 10  # choose an antenna index to plot
+    
+    fig, ax = plt.subplots(2,1, figsize=(6,8))
+    ax[0].plot(freq_grid_coreas / units.MHz, np.abs(spect_coreas[0,ant_idx,:]) / (units.micro  * units.volt / units.m / units.MHz))
+    ax[1].plot(freq_grid_coreas / units.MHz, np.abs(spect_coreas[1,ant_idx,:]) / (units.micro  * units.volt / units.m / units.MHz))
+    ax[1].set_xlabel("Frequency [MHz]")
+    ax[0].set_xlim(0, 500)
+    ax[1].set_xlim(0, 500)
+    ax[0].set_ylabel(r"$\tilde{E}_\mathrm{GEO}$ [μV/m/MHz]")
+    ax[1].set_ylabel(r"$\tilde{E}_\mathrm{CE}$ [μV/m/MHz]")
+    
+    ax[0].set_title(f"Spectrum from CoREAS at r={radial_distances[ant_idx]:.1f} m, φ={ang_distances[ant_idx]:.1f}°")
+    ax[0].grid(True, which="both", ls="--", alpha=0.5)
+    ax[1].grid(True, which="both", ls="--", alpha=0.5)
+
+
+
+
+.. image:: run_with_coreas_showers_files/run_with_coreas_showers_27_0.png
+
+
+.. code:: ipython3
+
+    fluences_coreas, ant_pos_coreas = smiet_runner.get_truths(xmax=target_xmax_to_get, zenith=target_zeniths_to_get, mode="fluence", geoce=False)
+
+.. code:: ipython3
+
+    fig, ax = plt.subplots(1,1, figsize=(5,4))
+    sc = ax.scatter(
+        ant_pos_coreas[:, 0], ant_pos_coreas[:, 1],
+        c=fluences_coreas,
+        cmap='inferno',
+        edgecolor='white',
+        alpha=1.0,
+        vmin=0,
+        vmax=45  # modify as needed
+    )
+    
+    ax.set_xlabel("vxB / m", fontsize=14)
+    ax.set_ylabel("vx(vxB) / m", fontsize=14)
+    
+    ax.set_xlim(-200, 200)
+    ax.set_ylim(-200, 200)
+    
+    ax.tick_params(axis='both', which='major', labelsize=12)
+    
+    cbar = fig.colorbar(sc, ax=ax)
+    cbar.ax.set_ylabel("CoREAS Fluence / eV m$^{-2}$", fontsize=16)
+    cbar.ax.tick_params(labelsize=12)
+
+
+
+.. image:: run_with_coreas_showers_files/run_with_coreas_showers_29_0.png
+
+
+
