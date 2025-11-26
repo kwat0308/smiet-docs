@@ -10,7 +10,7 @@ To fully utilize the potential of the JAX framework, we opt to store all slices 
 
 2. The JAX version can lead to memory overloads when using large arrays.
 
-As JAX internally uses a just-in-time compilation (JIT) approach, it can lead to some memory issues when using large arrays. This is due to the fact that JAX will try to compile the function with the largest array size, which can lead to memory issues. To avoid this, we recommend to either use smaller arrays or use the available functionality ``apply_trace_cuts`` in the ``SlicedShower`` object to reduce the sample size which will further reduce the memory.
+As JAX internally uses a just-in-time compilation (JIT) approach, it can lead to some memory issues when using large arrays. This is due to the fact that JAX will try to compile the function with the largest array size, which can lead to memory issues. To mitigate this, we recommend users to use the origin shower library, which stores origin showers with minimal memory constraints.
 
 
 3. The JAX version does not include synthesis of the phase information.
@@ -24,11 +24,6 @@ While the NumPy version also synthesises the phase information through the arriv
    - ``jax_radio_tools`` : This is a library that provides tools for radio signal processing in JAX, similar to the already widely used ``radio_tools``.
    These libraries are necessary for the JAX version to function properly, and are not required for the NumPy version.
 
-
-5. All templates are stored via HDF5 files, while in the NumPy version they are stored as ``.npz`` files. 
-   
-   This is a more efficient way to store the templates, as HDF5 files are more efficient for large datasets, while the user-defined ``SlicedSynthesis`` objects are more easily stored via ``.npz`` files. The HDF5 files can be read using the ``h5py`` library, which is already included in the JAX version.
-
 6. Syntactic differences
 
-There are several naming conventions that differ between the JAX and NumPy versions. For example, the magnetic field vector is called ``magnet`` in the NumPy version whilst ``magnetic_field_vector`` in the JAX version. We plan to list all differences in the future, but for now, please refer to the package documentation for the most up-to-date information.
+There are several naming conventions that differ between the JAX and NumPy versions. While most syntactic differences have been resolved, there may be minor differences in the accessing of variables. Please raise an issue on GitLab if you encounter any issues regarding this.

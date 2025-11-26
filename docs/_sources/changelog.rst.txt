@@ -1,8 +1,32 @@
 Release notes
 =============
 
+Version 0.8.0
+-------------
+
+In this release, we introduce several new features and improvements to the SMIET package, enhancing its functionality and user experience. Additionally, most parity issues between the Numpy and JAX implementations have been resolved.
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- Added the SMIETRun class, which provides a high-level interface for running the entire template synthesis workflow, from loading origin and target showers to synthesizing traces and extracting relevant quantities.
+- Resolved most parity issues between the Numpy and JAX implementations, ensuring consistent behavior and results across both backends.
+
+Resolved parity issues
+^^^^^^^^^^^^^^^^^^^^^^^
+- Loading / saving templates : this is both done with HDF5 files, including compression for large arrays.
+- Traces are now band-pass filtered at initialization (JAX) or at access level (numpy) to 30 - 500 MHz by default, as frequencies outside this range is not relevant with SMIET.
+- antenna-specific information in synthesis are contained in antenna_information.
+- The frequency array for TemplateSynthesis are loaded consistently (without units.MHz).
+- Antenna properties from shower objects are stored as antenna_arrays.
+- a function to interpolate the longitudinal profile to the atmospheric grid used in the origin shower has been added to both versions.
+- naming conventions (slice_grammages to grammages, long to long_profile, magnetic_field_vector to magnetic_field).
+- long_profile now returns only the longitudinal profile, and the grammages are set as a separate class object.
+- the Gaisser-Hillas parameters are now set as a dictionary, which store all relevant parameters.
+ 
 Version 0.7.0
 -------------
+
+In this release, we introduce the origin shower generation functionality, allowing users to create their own origin shower libraries for template synthesis. Several bug fixes and improvements have also been made to enhance the overall stability and performance of the package.
 
 Highlights and breaking changes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -526,16 +526,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#applying-cuts-to-the-sliced-traces" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>Applying cuts to the sliced traces</span>
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -567,16 +557,6 @@
     
     <span class="md-ellipsis">
       <span>Accessing shower properties</span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#applying-cuts-to-the-coreas-traces" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>Applying cuts to the Co<wbr>REAS traces</span>
     </span>
   </a>
   
@@ -809,16 +789,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#applying-cuts-to-the-sliced-traces" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>Applying cuts to the sliced traces</span>
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -850,16 +820,6 @@
     
     <span class="md-ellipsis">
       <span>Accessing shower properties</span>
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#applying-cuts-to-the-coreas-traces" class="md-nav__link">
-    
-    <span class="md-ellipsis">
-      <span>Applying cuts to the Co<wbr>REAS traces</span>
     </span>
   </a>
   
@@ -932,7 +892,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">nmax</span></code>: The maximum number of particles in the shower.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">zenith</span></code>: The zenith angle of the shower in radians.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">azimuth</span></code>: The azimuth angle of the shower in radians.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">magnetic_field_vector</span></code>: The magnetic field vector of the observation site in the NuRadioReco unit convention.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">magnet</span></code>: The magnetic field vector of the observation site in the NuRadioReco unit convention.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">core</span></code>: The core position of the shower in the NuRadioReco unit convention.</p></li>
 </ul>
 <p>Example:</p>
@@ -948,7 +908,7 @@
 <span class="s2">&quot;nmax&quot;</span> <span class="p">:</span> <span class="mf">1e9</span><span class="p">,</span>
 <span class="s2">&quot;zenith&quot;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
 <span class="s2">&quot;azimuth&quot;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
-<span class="s2">&quot;magnetic_field_vector&quot;</span> <span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]),</span>
+<span class="s2">&quot;magnet&quot;</span> <span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]),</span>
 <span class="s2">&quot;core&quot;</span> <span class="p">:</span> <span class="n">jnp</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
 <span class="p">}</span>
 
@@ -981,47 +941,27 @@
 <li><p>Convert all relevant properties into standard NuRadioReco units, which is the convention used in this code. Here, a transformer <code class="docutils literal notranslate"><span class="pre">self.transformer</span></code> is defined based on the geometry and magnetic field of the shower.</p></li>
 <li><p>Sort all antennas based on increasing radius and azimuth (in that order). This is done to consistently match antennas defined in the origin shower with those defined through other means (e.g. from standard CoREAS simulations).</p></li>
 </ol>
-<p>The resulting electric field traces for all antennas, positions, and slices can be accessed via the <code class="docutils literal notranslate"><span class="pre">self.trace_slices</span></code> attribute.</p>
+<p>The resulting electric field traces for all antennas, positions, and slices can be accessed via the <code class="docutils literal notranslate"><span class="pre">self.get_traces_geoce</span></code> method.</p>
+<p>By default, the traces are bandpass filtered between 30-500 MHz.</p>
 <h4 id="accessing-shower-properties">Accessing shower properties<a class="headerlink" href="#accessing-shower-properties" title="Link to this heading">¶</a></h4>
 <p>The following properties of the shower can be accessed, which can be useful in different scenarios:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># electric field traces in on-sky coordinates</span>
-<span class="n">traces_onsky</span> <span class="o">=</span> <span class="n">sliced_shower</span><span class="o">.</span><span class="n">trace_slices</span>
-
-<span class="c1"># electric field traces in geomagnetic &amp; CR emission</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># electric field traces in geomagnetic &amp; CR emission</span>
 <span class="n">traces_geoce</span> <span class="o">=</span> <span class="n">sliced_shower</span><span class="o">.</span><span class="n">get_traces_geoce</span><span class="p">()</span>
 
 <span class="c1"># time axis of the electric field traces</span>
 <span class="n">trace_times</span> <span class="o">=</span> <span class="n">sliced_shower</span><span class="o">.</span><span class="n">trace_times</span>
 
 <span class="c1"># antenna positions in ground plane</span>
-<span class="n">ant_positions_ground</span> <span class="o">=</span> <span class="n">sliced_shower</span><span class="o">.</span><span class="n">ant_positions_ground</span>
+<span class="n">ant_positions_ground</span> <span class="o">=</span> <span class="n">sliced_shower</span><span class="o">.</span><span class="n">antenna_array</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span>
 
 <span class="c1"># antenna positions in shower plane</span>
 <span class="n">ant_positions_shower</span> <span class="o">=</span> <span class="n">sliced_shower</span><span class="o">.</span><span class="n">get_antennas_showerplane</span><span class="p">()</span>
 
 <span class="c1"># distance of each antenna to the shower core</span>
-<span class="n">ant_distances</span> <span class="o">=</span> <span class="n">sliced_shower</span><span class="o">.</span><span class="n">dis_to_core</span>
+<span class="n">ant_distances</span> <span class="o">=</span> <span class="n">sliced_shower</span><span class="o">.</span><span class="n">antenna_array</span><span class="p">[</span><span class="s1">&#39;dis_to_core&#39;</span><span class="p">]</span>
 </code></pre></div>
 </div>
 <p>In addition, all properties as defined in the <code class="docutils literal notranslate"><span class="pre">BaseShower</span></code> class can be accessed. This includes the zenith and azimuth angles, the core position, the magnetic field vector, the maximum depth of the shower, and the longitudinal profile itself.</p>
-<h4 id="applying-cuts-to-the-sliced-traces">Applying cuts to the sliced traces<a class="headerlink" href="#applying-cuts-to-the-sliced-traces" title="Link to this heading">¶</a></h4>
-<p>As we now store everything in a single array, using the full array may not only be suboptimal but also unnecessary for most cases. Therefore, we provide a functionality to apply some cuts to the trace. These functions include:</p>
-<ul class="simple">
-<li><p>resampling: the trace will be resampled from the default sampling rate of 1 GHz to the desired sampling rate. This is done by using the JAXified version of the <code class="docutils literal notranslate"><span class="pre">resample</span></code> function from the <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> module.</p></li>
-<li><p>filtering: the trace is filtered to the desired frequency bandwidth (in MHz) using a simple box filter function after zeropadding the trace.</p></li>
-</ul>
-<p>Example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="n">sliced_shower</span><span class="o">.</span><span class="n">apply_trace_cuts</span><span class="p">(</span>
-    <span class="n">f_min</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">,</span>
-    <span class="n">f_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">80</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">,</span>
-    <span class="n">delta_t</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">ns</span><span class="p">,</span>
-    <span class="n">t_window</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">ns</span><span class="p">,</span> <span class="c1"># not used</span>
-    <span class="n">sample_axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="n">sample_time_axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
-</div>
-<p>where <code class="docutils literal notranslate"><span class="pre">sample_axis</span></code> and <code class="docutils literal notranslate"><span class="pre">sample_time_axis</span></code> are the axis in which the samples lie within the array of traces. The default values are set to 2 and 1, respectively, and need not be modified otherwise.</p>
 <h3 id="coreasshower">CoreasShower<a class="headerlink" href="#coreasshower" title="Link to this heading">¶</a></h3>
 <p>This is the main reader for CoREAS simulations, as it is the most common format used in the community. The <code class="docutils literal notranslate"><span class="pre">CoreasShower</span></code> class is a subclass of the <code class="docutils literal notranslate"><span class="pre">BaseShower</span></code> class and provides similar functionality as the <code class="docutils literal notranslate"><span class="pre">SlicedShower</span></code> class.</p>
 <p>To initialise the <code class="docutils literal notranslate"><span class="pre">CoreasShower</span></code> class, a pre-simulated CoREAS simulation generated from <a class="reference internal" href="../corsika/corsika_index.html#corsika-filegeneration"><span class="std std-ref">Tools for CORSIKA/CoREAS</span></a> is required. To initialise the shower, the following command can be used:</p>
@@ -1039,15 +979,8 @@
 <li><p>Convert all relevant properties into standard NuRadioReco units, which is the convention used in this code. Here, a transformer <code class="docutils literal notranslate"><span class="pre">self.transformer</span></code> is defined based on the geometry and magnetic field of the shower.</p></li>
 <li><p>Sort all antennas based on increasing radius and azimuth (in that order). This is done to consistently match antennas defined in the origin shower with those defined through other means (e.g. from standard CoREAS simulations).</p></li>
 </ol>
-<p>The resulting electric field traces for all antennas and positions can be accessed via the <code class="docutils literal notranslate"><span class="pre">self.efield_traces</span></code> attribute.</p>
 <h4 id="id2">Accessing shower properties<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h4>
-<p>Most properties follow those from the <code class="docutils literal notranslate"><span class="pre">SlicedShower</span></code> class, except for the electric field traces themselves (which are now not sliced). They can be accessed as such:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># electric field traces in on-sky coordinates</span>
-<span class="n">traces_onsky</span> <span class="o">=</span> <span class="n">coreas_shower</span><span class="o">.</span><span class="n">efield_traces</span>
-</code></pre></div>
-</div>
-<h4 id="applying-cuts-to-the-coreas-traces">Applying cuts to the CoREAS traces<a class="headerlink" href="#applying-cuts-to-the-coreas-traces" title="Link to this heading">¶</a></h4>
-<p>Similar to the <code class="docutils literal notranslate"><span class="pre">SlicedShower</span></code> class, the <code class="docutils literal notranslate"><span class="pre">CoreasShower</span></code> class provides a functionality to apply some cuts to the trace. See above for details.</p>
+<p>Most properties follow those from the <code class="docutils literal notranslate"><span class="pre">SlicedShower</span></code> class.</p>
 <h2 id="making-a-template">Making a Template<a class="headerlink" href="#making-a-template" title="Link to this heading">¶</a></h2>
 <p>We are finally ready to make a template. The <code class="docutils literal notranslate"><span class="pre">TemplateSynthesis</span></code> class is the main class to use for this. It takes a <code class="docutils literal notranslate"><span class="pre">BaseShower</span></code> object as input and generates a template based on the shower properties.</p>
 <p>The template is generated by using the <code class="docutils literal notranslate"><span class="pre">make_template</span></code> method, which takes a <code class="docutils literal notranslate"><span class="pre">SlicedShower</span></code> object to generate a template. This template can be stored as a HDF5 file using the <code class="docutils literal notranslate"><span class="pre">save_template</span></code> method. The template can be loaded again using the <code class="docutils literal notranslate"><span class="pre">load_template</span></code> method.</p>
@@ -1099,7 +1032,7 @@ CoREAS simulation. This can be done by using the <code class="docutils literal n
 
 <span class="c1"># create a template object</span>
 <span class="n">template</span> <span class="o">=</span> <span class="n">TemplateSynthesis</span><span class="p">(</span>
-    <span class="n">freq_ar</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">,</span> <span class="mi">80</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">,</span> <span class="mi">50</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">]</span>
+    <span class="n">freq_ar</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 <span class="p">)</span>
 
 <span class="c1"># load the pre-defined template from before</span>
@@ -1114,12 +1047,6 @@ CoREAS simulation. This can be done by using the <code class="docutils literal n
 
 <span class="c1"># OR: use a simulated shower</span>
 <span class="n">shower</span> <span class="o">=</span> <span class="n">CoreasShower</span><span class="p">(</span><span class="s2">&quot;path/to/simulation/file.hdf5&quot;</span><span class="p">)</span>
-<span class="c1"># apply cuts</span>
-<span class="n">shower</span><span class="o">.</span><span class="n">apply_trace_cuts</span><span class="p">(</span>
-    <span class="n">f_min</span><span class="o">=</span><span class="mi">30</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">,</span>
-    <span class="n">f_max</span><span class="o">=</span><span class="mi">80</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">MHz</span><span class="p">,</span>
-    <span class="n">delta_t</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">ns</span><span class="p">,</span>
-<span class="p">)</span>
 <span class="c1"># transform the profile to the origin shower</span>
 <span class="c1"># pass in the grammage from the origin shower</span>
 <span class="n">shower</span><span class="o">.</span><span class="n">transform_profile_to_origin</span><span class="p">(</span><span class="n">template</span><span class="o">.</span><span class="n">grammages</span><span class="p">)</span>

@@ -6,6 +6,10 @@ Using SMIETRun
 
 Here we will show you a quick way to get started with template synthesis using the `smiet.core.SMIETRun` class. This class handles all necessary steps (loading origin showers, loading target showers, synthesising them, and extracting relevant quantities). This example will synthesise traces given by a CoREAS simulation using pre-simulated origin templates.
 
+.. note::
+    
+    The template library needs to be downloaded for this example to work. The base template library can be installed from `here <https://bwsyncandshare.kit.edu/s/DrsbG27mkxtcetF>`_ (approximately 13 GB when unpacked).
+
 .. code-block:: python
 
     from smiet import SMIETRun, units
