@@ -1,0 +1,2 @@
+Sphynx>=8.0
+sphix_immaterial>=0.13.0
