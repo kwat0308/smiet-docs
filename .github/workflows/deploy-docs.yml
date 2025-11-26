@@ -25,21 +25,16 @@ jobs:
 
       # 4. Build HTML in temporary folder
       - run: |
-          sphinx-build -b html docs/ docs/_build/html
-
-      # 5. Copy built HTML to /docs
-      - run: cp -r docs/_build/html/* docs/
-
-      - run : rm -rf docs/_build
+          sphinx-build -b html docs/ docs/_build/html html_baseurl="https://kwat0308.github.io/smiet-docs/"
 
       # 6. Commit and push changes
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs
-          git commit -m "Update built docs [ci skip]" || echo "No changes to commit"
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
-          git push origin main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_build/html
+          publish_branch: main          # deploy into /docs on main
+          destination_dir: docs         # push into this folder
+          user_name: "github-actions[bot]"
+          user_email: "github-actions[bot]@users.noreply.github.com"
+          keep_files: false             # remove old files before pushing
