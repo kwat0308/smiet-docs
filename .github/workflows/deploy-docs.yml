@@ -40,3 +40,5 @@ jobs:
           git add docs
           git commit -m "Update built docs [ci skip]" || echo "No changes to commit"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
