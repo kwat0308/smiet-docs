@@ -1,0 +1,71 @@
+.. Template Synthesis for Radio Emission from Air Showers documentation master file, created by
+   sphinx-quickstart on Tue Mar 25 11:02:53 2025.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+SMIET: Synthesis Modelling In-air Emission using Templates
+==========================================================
+
+Welcome to the documentation of the ``SMIET`` package.
+This package implements the template synthesis algorithm, which is described in short :doc:`here <template-synthesis/ts_index>`.
+
+Installation
+------------
+To install the package, simply run:
+
+.. code-block:: bash
+
+   pip install smiet
+
+for the latest stable release from PyPI, or
+
+.. code-block:: bash
+
+   git clone https://gitlab.iap.kit.edu/AirShowerPhysics/smiet-cr-synthesis.git
+   cd smiet-cr-synthesis
+   pip install -e .
+
+for the latest development branch.
+
+*Note*: If you want to use the JAX implementation of the template synthesis algorithm, you can install the package via:
+
+.. code-block:: bash
+
+   pip install smiet[jax]
+
+However, we recommend users to use the NumPy implementation unless there is a specific need for JAX, as the NumPy version is generally more straightforward to use and has fewer dependencies.
+
+Examples 
+-----------
+See :doc:`here <minimal_example>` for a minimal example of how to use the package. You can also look at `smiet-examples <https://gitlab.iap.kit.edu/kwatanabe/smiet-examples.git>`_ for more complete examples.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Sections in this documentation:
+
+   logging
+   conventions_units
+   minimal_example
+   template-synthesis/ts_index
+   numpy/numpy_index
+   jax/jax_index
+   corsika/corsika_index
+   changelog
+
+Citation
+--------
+If you use this package in your research, please cite the following publications:
+
+   M. Desmet, S. Buitink, T. Huege, K. Watanabe, "SMIET: Fast and accurate synthesis of radio pulses from extensive air shower using simulated templates", Astropart. Phys. 175 (2026) 103182, `doi:10.1016/j.astropartphys.2025.103182 <https://doi.org/10.1016/j.astropartphys.2025.103182>`_ , `arXiv:2505.10459 <https://arxiv.org/abs/2505.10459>`_ .
+
+   Desmet, M. (2025). SMIET: Synthesis Modelling In-air Emission using Templates (v0.5). Zenodo. `https://doi.org/10.5281/zenodo.15194465 <https://doi.org/10.5281/zenodo.15194465>`_ .
+
+Further publications
+--------------------
+
+Additional relevant publications:
+
+   M. Desmet, S. Buitink, T. Huege, D. Butler, R. Engel, and O. Scholten, "Proof of principle for template synthesis approach for the radio emission from vertical extensive air showers", Astropart. Phys. 157 (2024) 102923, `doi:10.1016/j.astropartphys.2023.102923 <https://doi.org/10.1016/j.astropartphys.2023.102923>`_ , `arXiv:2307.02939 <https://arxiv.org/abs/2307.02939>`_ .
+   Proceedings of `ARENA22 <https://pos.sissa.it/424/052/>`_
+   Proceedings of `ICRC23 <https://pos.sissa.it/444/216/>`_
+   Proceedings of `ARENA24 <https://pos.sissa.it/470/046/>`_
