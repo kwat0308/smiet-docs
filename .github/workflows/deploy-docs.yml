@@ -25,17 +25,15 @@ jobs:
 
       # 4. Build HTML in temporary folder
       - run: |
-          rm -rf docs/_build
+          rm -rf docs/
           sphinx-build -b html docs/ docs/_build/html
 
-      # 5. Clean /docs folder except Sphinx source files
-      - run: |
-          find docs -maxdepth 1 ! -name '_build' ! -name '*.rst' ! -name 'conf.py' -exec rm -rf {} +
-
-      # 6. Copy built HTML to /docs
+      # 5. Copy built HTML to /docs
       - run: cp -r docs/_build/html/* docs/
 
-      # 7. Commit and push changes
+      - run : rm -rf docs/_build
+
+      # 6. Commit and push changes
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
