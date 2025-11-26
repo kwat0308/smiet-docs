@@ -1,5 +1,5 @@
-Running SMIET
--------------
+Running SMIET with User-Generated Target Showers
+------------------------------------------------
 
 This is an example notebook on how to run SMIET using the main
 functionality SMIETRun.

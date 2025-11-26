@@ -385,7 +385,7 @@
   
   
   <span class="md-ellipsis">
-    <span>Running SMIET</span>
+    <span>Running SMIET with User-<wbr>Generated Target Showers</span>
     
   </span>
   
@@ -457,7 +457,7 @@
   
   
   <span class="md-ellipsis">
-    <span>Using Template<wbr>Synthesis</span>
+    <span>Using the Template<wbr>Synthesis class</span>
     
   </span>
   
@@ -848,12 +848,20 @@ differentiation, and parallelization.</p>
 <p>This is implemented to be applied in the context of
 <a class="reference external" href="https://ift.pages.mpcdf.de/nifty/user/">NIFTy</a>. However, it can also
 be used to synthesise traces normally. This is generally not
-recommended, however, as: - For most general cases, the <code class="docutils literal notranslate"><span class="pre">numpy</span></code>
-version is sufficient in terms of performance, - it can be annoying to
-install <code class="docutils literal notranslate"><span class="pre">jax</span></code> in your machine, especially if you want to use the GPU
-features - there may be memory issues related to it for large origin
-showers (fix in progress!) - some features may not be directly
-available.</p>
+recommended, however, as:</p>
+<ul class="simple">
+<li><p>For most general cases, the <code class="docutils literal notranslate"><span class="pre">numpy</span></code></p></li>
+</ul>
+<p>version is sufficient in terms of performance,</p>
+<ul class="simple">
+<li><p>it can be annoying to</p></li>
+</ul>
+<p>install <code class="docutils literal notranslate"><span class="pre">jax</span></code> in your machine, especially if you want to use the GPU
+features</p>
+<ul class="simple">
+<li><p>there may be memory issues related to it for large origin showers (fix in progress!)</p></li>
+<li><p>some features may not be directly available.</p></li>
+</ul>
 <p>Nevertheless, we provide the user with a way to run and compare the JAX
 version with the numpy version here.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">jax</span>

@@ -1,5 +1,5 @@
-Using TemplateSynthesis
-=======================
+Using the TemplateSynthesis class
+=================================
 
 For more general purposes, using ``SMIETRun`` is sufficient. However,
 for more complicated manipulation, you can use the ``TemplateSynthesis``
