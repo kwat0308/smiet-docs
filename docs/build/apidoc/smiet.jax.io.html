@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#submodules" class="md-skip">
+        <a href="#smiet.jax.io.BaseShower" class="md-skip">
           Skip to content
         </a>
       
@@ -735,6 +735,954 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower (Python class) — Bases: object"><span>smiet.<wbr>jax.<wbr>io.<wbr>Base<wbr>Shower</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.jax.io.BaseShower">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.GH_parameters" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.GH_parameters (Python property) — Get the Gaisser-Hillas parameters as a dictionary."><span>GH_<wbr>parameters</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.azimuth" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.azimuth (Python property) — The azimuthal angle in radians."><span>azimuth</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.core" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.core (Python property) — The core (x, y, z in NRR CS) where the EAS hit in the simulation."><span>core</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.geomagnetic_angle" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.geomagnetic_angle (Python property) — The angle between the magnetic field vector and the shower axis."><span>geomagnetic_<wbr>angle</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.geometry" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.geometry (Python property) — Store the zenith and azimuth. These must be provided in the internal units system."><span>geometry</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.get_transformer" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.get_transformer (Python method) — Get the transformer from jax_radio_tools that contains the coordinate transformations from shower to ground frame, as well to on-sky coordinates."><span>get_<wbr>transformer</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.get_transformer-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.get_transformer-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.grammages" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.grammages (Python property) — Array of atmospheric slices in g/cm^2."><span>grammages</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.long_profile" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.long_profile (Python property) — The longitudinal profile of electrons and positrons in each atmospheric slice."><span>long_<wbr>profile</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.magnet" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.magnet (Python property) — Magnetic field vector in the NRR coordinate system."><span>magnet</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.nmax" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.nmax (Python property) — The $N_{max}$ of the shower, from fitting a GH to the longitudinal profile."><span>nmax</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.nr_slices" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.nr_slices (Python property) — The number of slices in the array."><span>nr_<wbr>slices</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters (Python method) — Set the parameters of the shower model from a dictionary of parameters."><span>set_<wbr>parameters</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="set_parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.grammages" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.grammages (Python parameter) — an array of atmospheric depth in g/cm^2"><span>grammages</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.long_profile" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.long_profile (Python parameter) — an array of the longitudinal profile of the shower"><span>long_<wbr>profile</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.xmax" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.xmax (Python parameter) — depth of shower maximum in g/cm^2"><span>xmax</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.nmax" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.nmax (Python parameter) — number of particles at shower maximum"><span>nmax</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.zenith" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.zenith (Python parameter) — zenith angle in radians"><span>zenith</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.azimuth" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.azimuth (Python parameter) — azimuthal angle in radians"><span>azimuth</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.magnetic_field" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.magnetic_field (Python parameter) — magnetic field vector in Gauss."><span>magnetic_<wbr>field</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.core" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.core (Python parameter) — core position in meters."><span>core</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.slice_grammage" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.slice_grammage (Python property) — The spacing between each grammage in g/cm^2."><span>slice_<wbr>grammage</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.transform_profile_to_origin" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.transform_profile_to_origin (Python method) — Transform the longitudinal profile to match those of the origin shower."><span>transform_<wbr>profile_<wbr>to_<wbr>origin</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="transform_profile_to_origin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.transform_profile_to_origin-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.transform_profile_to_origin.origin_grammages" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.transform_profile_to_origin.origin_grammages (Python parameter) — The grammages of the origin shower."><span>origin_<wbr>grammages</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.xmax" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.xmax (Python property) — The $X_{max}$ of the shower, from fitting a GH to the longitudinal profile."><span>xmax</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.zenith" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.zenith (Python property) — The zenith angle in radians."><span>zenith</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower (Python class) — Bases: BaseShower"><span>smiet.<wbr>jax.<wbr>io.<wbr>Coreas<wbr>Shower</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.jax.io.CoreasShower">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.__init__.file_path" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.__init__.file_path (Python parameter) — Path to the HDF5 file containing the CoREAS simulation data."><span>file_<wbr>path</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.__init__.bandpass" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.__init__.bandpass (Python parameter) — The frequency bandpass in MHz to apply to the traces."><span>bandpass</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.__init__.gdas_file" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.__init__.gdas_file (Python parameter) — If provided, the atmosphere will be created using this GDAS file."><span>gdas_<wbr>file</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.delta_t" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.delta_t (Python property) — Time resolution of the trace."><span>delta_<wbr>t</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="delta_t">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.delta_t-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.delta_t-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_antenna_position (Python method) — Get the antenna positions on the ground."><span>get_<wbr>antenna_<wbr>position</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_antenna_position">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_antenna_position_showerplane (Python method) — Get the antenna positions in shower plane."><span>get_<wbr>antenna_<wbr>position_<wbr>showerplane</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_antenna_position_showerplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_geoce" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_traces_geoce (Python method) — Get the traces from traces at the ground to GEO/CE components."><span>get_<wbr>traces_<wbr>geoce</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_geoce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_geoce-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_geoce-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_onsky" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_traces_onsky (Python method) — Get the traces from traces at the ground to on-sky components."><span>get_<wbr>traces_<wbr>onsky</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_onsky">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_onsky-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_onsky-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_raw" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_traces_raw (Python method) — Get all traces for all antennas on the ground plane."><span>get_<wbr>traces_<wbr>raw</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_raw">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_raw-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_raw-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_traces_vB_vvB (Python method) — Get the traces from traces at the ground to vB/vvB components."><span>get_<wbr>traces_<wbr>v<wbr>B_<wbr>vv<wbr>B</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_vB_vvB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.remove_antennas" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.remove_antennas (Python method) — Remove antennas from the data traces."><span>remove_<wbr>antennas</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="remove_antennas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameter:<wbr></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.trace_length" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.trace_length (Python property) — Length of the trace."><span>trace_<wbr>length</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="trace_length">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.trace_length-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.trace_length-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower (Python class) — Bases: CoreasShower"><span>smiet.<wbr>jax.<wbr>io.<wbr>Sliced<wbr>Shower</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.jax.io.SlicedShower">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.__init__.file_path" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.__init__.file_path (Python parameter) — The filepath to the simulation to read."><span>file_<wbr>path</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.__init__.slicing_grammage" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.__init__.slicing_grammage (Python parameter) — The width between atmospheric slices in g/cm^2"><span>slicing_<wbr>grammage</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.__init__.bandpass" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.__init__.bandpass (Python parameter) — The frequency bandpass in MHz to apply to the traces."><span>bandpass</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.__init__.gdas_file" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.__init__.gdas_file (Python parameter) — If provided, the atmosphere will be created using this GDAS file."><span>gdas_<wbr>file</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_coreas_settings" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.get_coreas_settings (Python method) — Get specific configurations from the CoREAS simulation that is useful for the synthesis."><span>get_<wbr>coreas_<wbr>settings</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_coreas_settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_coreas_settings-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_coreas_settings-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_traces_geoce" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.get_traces_geoce (Python method) — Get the traces from traces at the ground to GEO/CE components."><span>get_<wbr>traces_<wbr>geoce</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_geoce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_traces_geoce-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_traces_geoce-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#submodules" class="md-nav__link">
     
     <span class="md-ellipsis">
@@ -959,6 +1907,954 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower (Python class) — Bases: object"><span>smiet.<wbr>jax.<wbr>io.<wbr>Base<wbr>Shower</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.jax.io.BaseShower">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.GH_parameters" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.GH_parameters (Python property) — Get the Gaisser-Hillas parameters as a dictionary."><span>GH_<wbr>parameters</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.azimuth" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.azimuth (Python property) — The azimuthal angle in radians."><span>azimuth</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.core" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.core (Python property) — The core (x, y, z in NRR CS) where the EAS hit in the simulation."><span>core</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.geomagnetic_angle" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.geomagnetic_angle (Python property) — The angle between the magnetic field vector and the shower axis."><span>geomagnetic_<wbr>angle</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.geometry" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.geometry (Python property) — Store the zenith and azimuth. These must be provided in the internal units system."><span>geometry</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.get_transformer" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.get_transformer (Python method) — Get the transformer from jax_radio_tools that contains the coordinate transformations from shower to ground frame, as well to on-sky coordinates."><span>get_<wbr>transformer</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_transformer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.get_transformer-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.get_transformer-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.grammages" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.grammages (Python property) — Array of atmospheric slices in g/cm^2."><span>grammages</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.long_profile" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.long_profile (Python property) — The longitudinal profile of electrons and positrons in each atmospheric slice."><span>long_<wbr>profile</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.magnet" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.magnet (Python property) — Magnetic field vector in the NRR coordinate system."><span>magnet</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.nmax" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.nmax (Python property) — The $N_{max}$ of the shower, from fitting a GH to the longitudinal profile."><span>nmax</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.nr_slices" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.nr_slices (Python property) — The number of slices in the array."><span>nr_<wbr>slices</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters (Python method) — Set the parameters of the shower model from a dictionary of parameters."><span>set_<wbr>parameters</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="set_parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.grammages" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.grammages (Python parameter) — an array of atmospheric depth in g/cm^2"><span>grammages</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.long_profile" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.long_profile (Python parameter) — an array of the longitudinal profile of the shower"><span>long_<wbr>profile</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.xmax" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.xmax (Python parameter) — depth of shower maximum in g/cm^2"><span>xmax</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.nmax" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.nmax (Python parameter) — number of particles at shower maximum"><span>nmax</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.zenith" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.zenith (Python parameter) — zenith angle in radians"><span>zenith</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.azimuth" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.azimuth (Python parameter) — azimuthal angle in radians"><span>azimuth</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.magnetic_field" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.magnetic_field (Python parameter) — magnetic field vector in Gauss."><span>magnetic_<wbr>field</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.set_parameters.core" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.set_parameters.core (Python parameter) — core position in meters."><span>core</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.slice_grammage" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.slice_grammage (Python property) — The spacing between each grammage in g/cm^2."><span>slice_<wbr>grammage</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.transform_profile_to_origin" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.transform_profile_to_origin (Python method) — Transform the longitudinal profile to match those of the origin shower."><span>transform_<wbr>profile_<wbr>to_<wbr>origin</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="transform_profile_to_origin">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.transform_profile_to_origin-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.transform_profile_to_origin.origin_grammages" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.transform_profile_to_origin.origin_grammages (Python parameter) — The grammages of the origin shower."><span>origin_<wbr>grammages</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.xmax" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.xmax (Python property) — The $X_{max}$ of the shower, from fitting a GH to the longitudinal profile."><span>xmax</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.BaseShower.zenith" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.BaseShower.zenith (Python property) — The zenith angle in radians."><span>zenith</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower (Python class) — Bases: BaseShower"><span>smiet.<wbr>jax.<wbr>io.<wbr>Coreas<wbr>Shower</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.jax.io.CoreasShower">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.__init__.file_path" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.__init__.file_path (Python parameter) — Path to the HDF5 file containing the CoREAS simulation data."><span>file_<wbr>path</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.__init__.bandpass" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.__init__.bandpass (Python parameter) — The frequency bandpass in MHz to apply to the traces."><span>bandpass</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.__init__.gdas_file" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.__init__.gdas_file (Python parameter) — If provided, the atmosphere will be created using this GDAS file."><span>gdas_<wbr>file</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.delta_t" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.delta_t (Python property) — Time resolution of the trace."><span>delta_<wbr>t</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="delta_t">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.delta_t-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.delta_t-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_antenna_position (Python method) — Get the antenna positions on the ground."><span>get_<wbr>antenna_<wbr>position</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_antenna_position">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_antenna_position_showerplane (Python method) — Get the antenna positions in shower plane."><span>get_<wbr>antenna_<wbr>position_<wbr>showerplane</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_antenna_position_showerplane">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_geoce" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_traces_geoce (Python method) — Get the traces from traces at the ground to GEO/CE components."><span>get_<wbr>traces_<wbr>geoce</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_geoce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_geoce-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_geoce-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_onsky" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_traces_onsky (Python method) — Get the traces from traces at the ground to on-sky components."><span>get_<wbr>traces_<wbr>onsky</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_onsky">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_onsky-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_onsky-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_raw" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_traces_raw (Python method) — Get all traces for all antennas on the ground plane."><span>get_<wbr>traces_<wbr>raw</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_raw">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_raw-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_raw-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.get_traces_vB_vvB (Python method) — Get the traces from traces at the ground to vB/vvB components."><span>get_<wbr>traces_<wbr>v<wbr>B_<wbr>vv<wbr>B</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_vB_vvB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.remove_antennas" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.remove_antennas (Python method) — Remove antennas from the data traces."><span>remove_<wbr>antennas</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="remove_antennas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameter" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameter:<wbr></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.trace_length" class="md-nav__link">
+    
+      <span aria-label="Python property" class="objinfo-icon objinfo-icon__alias" title="Python property">P</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.trace_length (Python property) — Length of the trace."><span>trace_<wbr>length</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="trace_length">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.trace_length-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.trace_length-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower" class="md-nav__link">
+    
+      <span aria-label="Python class" class="objinfo-icon objinfo-icon__data" title="Python class">C</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower (Python class) — Bases: CoreasShower"><span>smiet.<wbr>jax.<wbr>io.<wbr>Sliced<wbr>Shower</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.jax.io.SlicedShower">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.__init__.file_path" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.__init__.file_path (Python parameter) — The filepath to the simulation to read."><span>file_<wbr>path</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.__init__.slicing_grammage" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.__init__.slicing_grammage (Python parameter) — The width between atmospheric slices in g/cm^2"><span>slicing_<wbr>grammage</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.__init__.bandpass" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.__init__.bandpass (Python parameter) — The frequency bandpass in MHz to apply to the traces."><span>bandpass</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.__init__.gdas_file" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.__init__.gdas_file (Python parameter) — If provided, the atmosphere will be created using this GDAS file."><span>gdas_<wbr>file</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_coreas_settings" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.get_coreas_settings (Python method) — Get specific configurations from the CoREAS simulation that is useful for the synthesis."><span>get_<wbr>coreas_<wbr>settings</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_coreas_settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_coreas_settings-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_coreas_settings-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_traces_geoce" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.SlicedShower.get_traces_geoce (Python method) — Get the traces from traces at the ground to GEO/CE components."><span>get_<wbr>traces_<wbr>geoce</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="get_traces_geoce">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_traces_geoce-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.SlicedShower.get_traces_geoce-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#submodules" class="md-nav__link">
     
     <span class="md-ellipsis">
@@ -984,7 +2880,366 @@
                   
 
 
-<h1 id="smiet-jax-io-package">smiet.jax.io package<a class="headerlink" href="#smiet-jax-io-package" title="Link to this heading">¶</a></h1>
+<h1 id="module-smiet.jax.io"><span id="smiet-jax-io-package"></span>smiet.jax.io package<a class="headerlink" href="#module-smiet.jax.io" title="Link to this heading">¶</a></h1>
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">smiet.jax.io.</span></span><span class="sig-name descname"><span class="pre">BaseShower</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Base class to contain the shower parameters.</p>
+<p>The Shower class is used to hold the geometric information for a shower, like the zenith/azimuth,
+as well as the longitudinal profile. It can be used to specify the target parameters for a shower
+in template synthesis.</p>
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.GH_parameters">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GH_parameters</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">dict</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.GH_parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Get the Gaisser-Hillas parameters as a dictionary.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.azimuth">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">azimuth</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.azimuth" title="Link to this definition">¶</a></dt>
+<dd><p>The azimuthal angle in radians.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.core">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">core</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">Array</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.core" title="Link to this definition">¶</a></dt>
+<dd><p>The core (x, y, z in NRR CS) where the EAS hit in the simulation.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.geomagnetic_angle">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">geomagnetic_angle</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.geomagnetic_angle" title="Link to this definition">¶</a></dt>
+<dd><p>The angle between the magnetic field vector and the shower axis.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.geometry">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">geometry</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">Array</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.geometry" title="Link to this definition">¶</a></dt>
+<dd><p>Store the zenith and azimuth. These must be provided in the internal units system.</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.get_transformer">
+<span class="sig-name descname"><span class="pre">get_transformer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smiet.jax.io.BaseShower.get_transformer" title="Link to this definition">¶</a></dt>
+<dd><p>Get the transformer from jax_radio_tools that contains the coordinate transformations from shower to ground frame, as well to on-sky coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.BaseShower.get_transformer-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.BaseShower.get_transformer-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><strong>transformer</strong> – The coordinate transformer from jax_radio_tools.</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.BaseShower.get_transformer-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.BaseShower.get_transformer-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>cstrafo</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.grammages">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grammages</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">Array</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.grammages" title="Link to this definition">¶</a></dt>
+<dd><p>Array of atmospheric slices in g/cm^2.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.long_profile">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">long_profile</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.long_profile" title="Link to this definition">¶</a></dt>
+<dd><p>The longitudinal profile of electrons and positrons in each atmospheric slice.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.magnet">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">magnet</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.magnet" title="Link to this definition">¶</a></dt>
+<dd><p>Magnetic field vector in the NRR coordinate system.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.nmax">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nmax</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.nmax" title="Link to this definition">¶</a></dt>
+<dd><p>The $N_{max}$ of the shower, from fitting a GH to the longitudinal profile.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.nr_slices">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nr_slices</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">int</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.nr_slices" title="Link to this definition">¶</a></dt>
+<dd><p>The number of slices in the array.</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.jax.io.BaseShower.set_parameters">
+<span class="sig-name descname"><span class="pre">set_parameters</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.set_parameters.grammages" title="smiet.jax.io.BaseShower.set_parameters.grammages (Python parameter) — an array of atmospheric depth in g/cm^2"><span class="n"><span class="pre">grammages</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.set_parameters.long_profile" title="smiet.jax.io.BaseShower.set_parameters.long_profile (Python parameter) — an array of the longitudinal profile of the shower"><span class="n"><span class="pre">long_profile</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.set_parameters.xmax" title="smiet.jax.io.BaseShower.set_parameters.xmax (Python parameter) — depth of shower maximum in g/cm^2"><span class="n"><span class="pre">xmax</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.set_parameters.nmax" title="smiet.jax.io.BaseShower.set_parameters.nmax (Python parameter) — number of particles at shower maximum"><span class="n"><span class="pre">nmax</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.set_parameters.zenith" title="smiet.jax.io.BaseShower.set_parameters.zenith (Python parameter) — zenith angle in radians"><span class="n"><span class="pre">zenith</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.set_parameters.azimuth" title="smiet.jax.io.BaseShower.set_parameters.azimuth (Python parameter) — azimuthal angle in radians"><span class="n"><span class="pre">azimuth</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.set_parameters.magnetic_field" title="smiet.jax.io.BaseShower.set_parameters.magnetic_field (Python parameter) — magnetic field vector in Gauss."><span class="n"><span class="pre">magnetic_field</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.set_parameters.core" title="smiet.jax.io.BaseShower.set_parameters.core (Python parameter) — core position in meters."><span class="n"><span class="pre">core</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">None</span></span></span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters" title="Link to this definition">¶</a></dt>
+<dd><p>Set the parameters of the shower model from a dictionary of parameters.</p>
+<p>This is a convenience function to set all parameters at once.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.BaseShower.set_parameters-parameters">Parameters<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters-parameters" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="smiet.jax.io.BaseShower.set_parameters.grammages"><span class="sig-name descname">grammages</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters.grammages" title="Permalink to this definition">¶</a></dt><dd><p>an array of atmospheric depth in g/cm^2</p>
+</dd>
+<dt id="smiet.jax.io.BaseShower.set_parameters.long_profile"><span class="sig-name descname">long_profile</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters.long_profile" title="Permalink to this definition">¶</a></dt><dd><p>an array of the longitudinal profile of the shower</p>
+</dd>
+<dt id="smiet.jax.io.BaseShower.set_parameters.xmax"><span class="sig-name descname">xmax</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters.xmax" title="Permalink to this definition">¶</a></dt><dd><p>depth of shower maximum in g/cm^2</p>
+</dd>
+<dt id="smiet.jax.io.BaseShower.set_parameters.nmax"><span class="sig-name descname">nmax</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters.nmax" title="Permalink to this definition">¶</a></dt><dd><p>number of particles at shower maximum</p>
+</dd>
+<dt id="smiet.jax.io.BaseShower.set_parameters.zenith"><span class="sig-name descname">zenith</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters.zenith" title="Permalink to this definition">¶</a></dt><dd><p>zenith angle in radians</p>
+</dd>
+<dt id="smiet.jax.io.BaseShower.set_parameters.azimuth"><span class="sig-name descname">azimuth</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters.azimuth" title="Permalink to this definition">¶</a></dt><dd><p>azimuthal angle in radians</p>
+</dd>
+<dt id="smiet.jax.io.BaseShower.set_parameters.magnetic_field"><span class="sig-name descname">magnetic_field</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters.magnetic_field" title="Permalink to this definition">¶</a></dt><dd><p>magnetic field vector in Gauss. Must be a 3-vector</p>
+</dd>
+<dt id="smiet.jax.io.BaseShower.set_parameters.core"><span class="sig-name descname">core</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.set_parameters.core" title="Permalink to this definition">¶</a></dt><dd><p>core position in meters. Must be a 3-vector</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.slice_grammage">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">slice_grammage</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.slice_grammage" title="Link to this definition">¶</a></dt>
+<dd><p>The spacing between each grammage in g/cm^2.</p>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.jax.io.BaseShower.transform_profile_to_origin">
+<span class="sig-name descname"><span class="pre">transform_profile_to_origin</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.BaseShower.transform_profile_to_origin.origin_grammages" title="smiet.jax.io.BaseShower.transform_profile_to_origin.origin_grammages (Python parameter) — The grammages of the origin shower."><span class="n"><span class="pre">origin_grammages</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">None</span></span></span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.transform_profile_to_origin" title="Link to this definition">¶</a></dt>
+<dd><p>Transform the longitudinal profile to match those of the origin shower.</p>
+<p>This is needed such that the grammages of the origin and target match.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.BaseShower.transform_profile_to_origin-parameters">Parameters<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.BaseShower.transform_profile_to_origin-parameters" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="smiet.jax.io.BaseShower.transform_profile_to_origin.origin_grammages"><span class="sig-name descname">origin_grammages</span><span class="p"> : </span><span class="desctype"><span class="desctype">jax.typing.ArrayLike</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.transform_profile_to_origin.origin_grammages" title="Permalink to this definition">¶</a></dt><dd><p>The grammages of the origin shower.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.xmax">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xmax</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.xmax" title="Link to this definition">¶</a></dt>
+<dd><p>The $X_{max}$ of the shower, from fitting a GH to the longitudinal profile.</p>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.BaseShower.zenith">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zenith</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.BaseShower.zenith" title="Link to this definition">¶</a></dt>
+<dd><p>The zenith angle in radians.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.jax.io.CoreasShower">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">smiet.jax.io.</span></span><span class="sig-name descname"><span class="pre">CoreasShower</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.CoreasShower.__init__.file_path" title="smiet.jax.io.CoreasShower.__init__.file_path (Python parameter) — Path to the HDF5 file containing the CoREAS simulation data."><span class="n"><span class="pre">file_path</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.CoreasShower.__init__.bandpass" title="smiet.jax.io.CoreasShower.__init__.bandpass (Python parameter) — The frequency bandpass in MHz to apply to the traces."><span class="n"><span class="pre">bandpass</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">list</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="p">[</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.CoreasShower.__init__.gdas_file" title="smiet.jax.io.CoreasShower.__init__.gdas_file (Python parameter) — If provided, the atmosphere will be created using this GDAS file."><span class="n"><span class="pre">gdas_file</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="s1">&#39;&#39;</span></code></em></span><span class="sig-paren">)</span><a class="headerlink" href="#smiet.jax.io.CoreasShower" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="smiet.jax.io.base_shower.html#smiet.jax.io.base_shower.BaseShower" title="smiet.jax.io.base_shower.BaseShower (Python class) — Bases: object"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseShower</span></code></a></p>
+<p>Class to read in showers from CoREAS simulations stored in HDF5 files.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower-parameters">Parameters<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower-parameters" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="smiet.jax.io.CoreasShower.__init__.file_path"><span class="sig-name descname">file_path</span><span class="p"> : </span><span class="desctype"><span class="desctype">str</span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.__init__.file_path" title="Permalink to this definition">¶</a></dt><dd><p>Path to the HDF5 file containing the CoREAS simulation data.</p>
+</dd>
+<dt id="smiet.jax.io.CoreasShower.__init__.bandpass"><span class="sig-name descname">bandpass</span><span class="p"> : </span><span class="desctype"><span class="desctype">list, default = [30 * units.MHz, 500 * units.MHz]</span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.__init__.bandpass" title="Permalink to this definition">¶</a></dt><dd><p>The frequency bandpass in MHz to apply to the traces. Defaults to 30-500 MHz,
+which is the bandwidth in which SMIET is applicable in.</p>
+</dd>
+<dt id="smiet.jax.io.CoreasShower.__init__.gdas_file"><span class="sig-name descname">gdas_file</span><span class="p"> : </span><span class="desctype"><span class="desctype">str, optional</span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.__init__.gdas_file" title="Permalink to this definition">¶</a></dt><dd><p>If provided, the atmosphere will be created using this GDAS file. This will take
+precedence over the atmosphere model specified in the simulation settings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.delta_t">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delta_t</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">float</span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.delta_t" title="Link to this definition">¶</a></dt>
+<dd><p>Time resolution of the trace.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.delta_t-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.delta_t-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><strong>delta_t</strong> – The time resolution in ns.</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.delta_t-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.delta_t-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.get_antenna_position">
+<span class="sig-name descname"><span class="pre">get_antenna_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">ndarray</span></span></span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_antenna_position" title="Link to this definition">¶</a></dt>
+<dd><p>Get the antenna positions on the ground.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.get_antenna_position-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_antenna_position-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><strong>ant_position_ground</strong> – The antenna positions on the ground, transformed to the NRR system.</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.get_antenna_position-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_antenna_position-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.get_antenna_position_showerplane">
+<span class="sig-name descname"><span class="pre">get_antenna_position_showerplane</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">ndarray</span></span></span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane" title="Link to this definition">¶</a></dt>
+<dd><p>Get the antenna positions in shower plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.get_antenna_position_showerplane-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><strong>ant_position_vB_vvB</strong> – The antenna positions in the shower plane, transformed to the NRR system.</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.get_antenna_position_showerplane-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_antenna_position_showerplane-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>jax.typing.ArrayLike</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.get_traces_geoce">
+<span class="sig-name descname"><span class="pre">get_traces_geoce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">ndarray</span></span></span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_geoce" title="Link to this definition">¶</a></dt>
+<dd><p>Get the traces from traces at the ground to GEO/CE components.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.get_traces_geoce-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_geoce-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><p><strong>traces_geo_ce</strong> – The traces in the shower plane, transformed to GEO and CE components.
+Shape is (2, Nant, Nsamples), where Nant is the number of antennas and Nsamples is the number of samples.</p>
+<p>When called with SlicedShower, the shape is (2, Nant, Nsamples, Nslices).</p>
+</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.get_traces_geoce-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_geoce-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.get_traces_onsky">
+<span class="sig-name descname"><span class="pre">get_traces_onsky</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">ndarray</span></span></span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_onsky" title="Link to this definition">¶</a></dt>
+<dd><p>Get the traces from traces at the ground to on-sky components.</p>
+<p>NOTE: the radial component (er) is set to zero manually here.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.get_traces_onsky-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_onsky-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><p><strong>traces_onsky</strong> – The traces in the shower plane, transformed to on-sky components (er, etheta, ephi).
+Shape is (3, Nant, Nsamples), where Nant is the number of antennas and Nsamples is the number of samples.</p>
+<p>When called with SlicedShower, the shape is (3, Nant, Nsamples, Nslices).</p>
+</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.get_traces_onsky-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_onsky-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.get_traces_raw">
+<span class="sig-name descname"><span class="pre">get_traces_raw</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">ndarray</span></span></span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_raw" title="Link to this definition">¶</a></dt>
+<dd><p>Get all traces for all antennas on the ground plane.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.get_traces_raw-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_raw-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><p><strong>traces_ground</strong> – the traces at ground in xyz coordinates.
+Shape is (3, Nant, Nsamples), where Nant is the number of antennas and Nsamples is the number of samples.</p>
+<p>When called with SlicedShower, the shape is (3, Nant, Nsamples, Nslices).</p>
+</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.get_traces_raw-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_raw-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>jax.typing.ArrayLike</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.get_traces_vB_vvB">
+<span class="sig-name descname"><span class="pre">get_traces_vB_vvB</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">ndarray</span></span></span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB" title="Link to this definition">¶</a></dt>
+<dd><p>Get the traces from traces at the ground to vB/vvB components.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.get_traces_vB_vvB-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><p><strong>traces_vB_vvB</strong> – The traces in the shower plane, transformed to vxB and vxvxB components.
+Shape is (3, Nant, Nsamples), where Nant is the number of antennas and Nsamples is the number of samples.</p>
+<p>When called with SlicedShower, the shape is (3, Nant, Nsamples, Nslices).</p>
+</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.get_traces_vB_vvB-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_traces_vB_vvB-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.remove_antennas">
+<span class="sig-name descname"><span class="pre">remove_antennas</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.CoreasShower.remove_antennas" title="smiet.jax.io.CoreasShower.remove_antennas.ant_idx_min (Python parameter)"><span class="n"><span class="pre">ant_idx_min</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">int</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="mi">0</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.CoreasShower.remove_antennas" title="smiet.jax.io.CoreasShower.remove_antennas.ant_idx_max (Python parameter)"><span class="n"><span class="pre">ant_idx_max</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">int</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="mi">90</span></code></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">None</span></span></span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.remove_antennas" title="Link to this definition">¶</a></dt>
+<dd><p>Remove antennas from the data traces.</p>
+<h2 id="parameter">Parameter:<a class="headerlink" href="#parameter" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>ant_idx_min<span class="classifier">float</span></dt><dd><p>remove all antennas below this antenna index</p>
+</dd>
+<dt>ant_idx_max<span class="classifier">float</span></dt><dd><p>remove all antennas above this antenna index</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.trace_length">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trace_length</span></span><span class="p"> <span class="pre">:</span> </span><span class="desctype"><span class="pre">int</span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.trace_length" title="Link to this definition">¶</a></dt>
+<dd><p>Length of the trace.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.trace_length-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.trace_length-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><strong>trace_length</strong> – The number of samples in the trace.</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.trace_length-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.trace_length-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.jax.io.SlicedShower">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">smiet.jax.io.</span></span><span class="sig-name descname"><span class="pre">SlicedShower</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.SlicedShower.__init__.file_path" title="smiet.jax.io.SlicedShower.__init__.file_path (Python parameter) — The filepath to the simulation to read."><span class="n"><span class="pre">file_path</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.SlicedShower.__init__.slicing_grammage" title="smiet.jax.io.SlicedShower.__init__.slicing_grammage (Python parameter) — The width between atmospheric slices in g/cm^2"><span class="n"><span class="pre">slicing_grammage</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">int</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="mi">5</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.SlicedShower.__init__.bandpass" title="smiet.jax.io.SlicedShower.__init__.bandpass (Python parameter) — The frequency bandpass in MHz to apply to the traces."><span class="n"><span class="pre">bandpass</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">list</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="p">[</span><span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span></code></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.io.SlicedShower.__init__.gdas_file" title="smiet.jax.io.SlicedShower.__init__.gdas_file (Python parameter) — If provided, the atmosphere will be created using this GDAS file."><span class="n"><span class="pre">gdas_file</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">str</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><code class="code python default_value docutils literal highlight highlight-python"><span class="s1">&#39;&#39;</span></code></em></span><span class="sig-paren">)</span><a class="headerlink" href="#smiet.jax.io.SlicedShower" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="smiet.jax.io.coreas_shower.html#smiet.jax.io.coreas_shower.CoreasShower" title="smiet.jax.io.coreas_shower.CoreasShower (Python class) — Bases: BaseShower"><code class="xref py py-class docutils literal notranslate"><span class="pre">CoreasShower</span></code></a></p>
+<p>Class to read in showers from each slice from CoREAS simulations, inherited from CoreasShower.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.SlicedShower-parameters">Parameters<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.SlicedShower-parameters" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="smiet.jax.io.SlicedShower.__init__.file_path"><span class="sig-name descname">file_path</span><span class="p"> : </span><span class="desctype"><span class="desctype">str</span></span><a class="headerlink" href="#smiet.jax.io.SlicedShower.__init__.file_path" title="Permalink to this definition">¶</a></dt><dd><p>The filepath to the simulation to read.</p>
+</dd>
+<dt id="smiet.jax.io.SlicedShower.__init__.slicing_grammage"><span class="sig-name descname">slicing_grammage</span><span class="p"> : </span><span class="desctype"><span class="desctype">int, default=5</span></span><a class="headerlink" href="#smiet.jax.io.SlicedShower.__init__.slicing_grammage" title="Permalink to this definition">¶</a></dt><dd><p>The width between atmospheric slices in g/cm^2</p>
+</dd>
+<dt id="smiet.jax.io.SlicedShower.__init__.bandpass"><span class="sig-name descname">bandpass</span><span class="p"> : </span><span class="desctype"><span class="desctype">list, default = [30 * units.MHz, 500 * units.MHz]</span></span><a class="headerlink" href="#smiet.jax.io.SlicedShower.__init__.bandpass" title="Permalink to this definition">¶</a></dt><dd><p>The frequency bandpass in MHz to apply to the traces. Defaults to 30-500 MHz,
+which is the bandwidth in which SMIET is applicable in.</p>
+</dd>
+<dt id="smiet.jax.io.SlicedShower.__init__.gdas_file"><span class="sig-name descname">gdas_file</span><span class="p"> : </span><span class="desctype"><span class="desctype">str, optional</span></span><a class="headerlink" href="#smiet.jax.io.SlicedShower.__init__.gdas_file" title="Permalink to this definition">¶</a></dt><dd><p>If provided, the atmosphere will be created using this GDAS file. This will take
+precedence over the atmosphere model specified in the simulation settings.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.SlicedShower.get_coreas_settings">
+<span class="sig-name descname"><span class="pre">get_coreas_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">dict</span></span></span></span><a class="headerlink" href="#smiet.jax.io.SlicedShower.get_coreas_settings" title="Link to this definition">¶</a></dt>
+<dd><p>Get specific configurations from the CoREAS simulation that is useful for the synthesis.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.SlicedShower.get_coreas_settings-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.SlicedShower.get_coreas_settings-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><strong>coreas_settings</strong> – A dictionary containing important information about the configuration of the CoREAS simulation</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.SlicedShower.get_coreas_settings-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.SlicedShower.get_coreas_settings-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.SlicedShower.get_traces_geoce">
+<span class="sig-name descname"><span class="pre">get_traces_geoce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">ndarray</span></span></span></span><a class="headerlink" href="#smiet.jax.io.SlicedShower.get_traces_geoce" title="Link to this definition">¶</a></dt>
+<dd><p>Get the traces from traces at the ground to GEO/CE components.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.SlicedShower.get_traces_geoce-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.SlicedShower.get_traces_geoce-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><p><strong>traces_geo_ce</strong> – The traces in the shower plane, transformed to GEO and CE components.
+Shape is (2, Nant, Nsamples), where Nant is the number of antennas and Nsamples is the number of samples.</p>
+<p>When called with SlicedShower, the shape is (2, Nant, Nsamples, Nslices).</p>
+</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.SlicedShower.get_traces_geoce-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.SlicedShower.get_traces_geoce-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <h2 id="submodules">Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>

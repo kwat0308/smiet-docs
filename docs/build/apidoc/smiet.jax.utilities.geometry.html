@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#smiet.jax.utilities.geometry.angle_between" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -685,6 +690,19 @@
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>jax.<wbr>utilities.<wbr>geometry module</span>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="#" class="md-nav__link md-nav__link--active">
         
   
@@ -696,6 +714,48 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.jax.utilities.geometry.angle_between" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.utilities.geometry.angle_between (Python function) — Returns the angle in radians between vectors &#39;v1&#39; and &#39;v2&#39;"><span>smiet.<wbr>jax.<wbr>utilities.<wbr>geometry.<wbr>angle_<wbr>between</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.jax.utilities.geometry.unit_vector" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.utilities.geometry.unit_vector (Python function) — Returns the unit vector of the vector."><span>smiet.<wbr>jax.<wbr>utilities.<wbr>geometry.<wbr>unit_<wbr>vector</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -883,6 +943,38 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.jax.utilities.geometry.angle_between" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.utilities.geometry.angle_between (Python function) — Returns the angle in radians between vectors &#39;v1&#39; and &#39;v2&#39;"><span>smiet.<wbr>jax.<wbr>utilities.<wbr>geometry.<wbr>angle_<wbr>between</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.jax.utilities.geometry.unit_vector" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.utilities.geometry.unit_vector (Python function) — Returns the unit vector of the vector."><span>smiet.<wbr>jax.<wbr>utilities.<wbr>geometry.<wbr>unit_<wbr>vector</span></span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -897,7 +989,18 @@
                   
 
 
-<h1 id="smiet-jax-utilities-geometry-module">smiet.jax.utilities.geometry module<a class="headerlink" href="#smiet-jax-utilities-geometry-module" title="Link to this heading">¶</a></h1>
+<h1 id="module-smiet.jax.utilities.geometry"><span id="smiet-jax-utilities-geometry-module"></span>smiet.jax.utilities.geometry module<a class="headerlink" href="#module-smiet.jax.utilities.geometry" title="Link to this heading">¶</a></h1>
+<dl class="py function objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.jax.utilities.geometry.angle_between">
+<span class="sig-prename descclassname"><span class="pre">smiet.jax.utilities.geometry.</span></span><span class="sig-name descname"><span class="pre">angle_between</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.utilities.geometry.angle_between" title="smiet.jax.utilities.geometry.angle_between.v1 (Python parameter)"><span class="n"><span class="pre">v1</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.utilities.geometry.angle_between" title="smiet.jax.utilities.geometry.angle_between.v2 (Python parameter)"><span class="n"><span class="pre">v2</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">Array</span></span></span></span><a class="headerlink" href="#smiet.jax.utilities.geometry.angle_between" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the angle in radians between vectors ‘v1’ and ‘v2’</p>
+</dd></dl>
+
+<dl class="py function objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.jax.utilities.geometry.unit_vector">
+<span class="sig-prename descclassname"><span class="pre">smiet.jax.utilities.geometry.</span></span><span class="sig-name descname"><span class="pre">unit_vector</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.jax.utilities.geometry.unit_vector" title="smiet.jax.utilities.geometry.unit_vector.vector (Python parameter)"><span class="n"><span class="pre">vector</span></span></a><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="desctype"><span class="pre">Array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool_</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">number</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span></span></span></em></span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">Array</span></span></span></span><a class="headerlink" href="#smiet.jax.utilities.geometry.unit_vector" title="Link to this definition">¶</a></dt>
+<dd><p>Returns the unit vector of the vector.</p>
+</dd></dl>
 
 
 
