@@ -33,9 +33,8 @@ exclude_patterns = []
 html_theme = 'sphinx_immaterial'
 # html_static_path = ['_static']
 html_theme_options = {
-    "use_relative_paths": True,
-    "navigation_with_keys": True,
-    "use_edit_page_button": False,
+    "use_relative_urls": True,
+    "base_url": "/smiet-docs/",
     "icon": {
         "repo": "fontawesome/brands/github",
         "edit": "material/file-edit-outline",
@@ -63,6 +62,8 @@ html_theme_options = {
         },
     ],
 }
+
+html_baseurl = "https://kwat0308.github.io/smiet-docs/"
 
 html_context = {
     "display_github" : False,

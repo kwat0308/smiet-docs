@@ -1,4 +1,4 @@
-name: Deploy docs
+name: Build and Deploy Docs
 
 on:
   push:
@@ -8,24 +8,38 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # 1. Checkout the repository
       - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      # 2. Set up Python
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: |
+      # 3. Install dependencies
+      - run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build HTML
-        run: sphinx-build -b html docs/ docs/_build/html
+      # 4. Build HTML in temporary folder
+      - run: |
+          rm -rf docs/_build
+          sphinx-build -b html docs/ docs/_build/html
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v5
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/_build/html
+      # 5. Clean /docs folder except Sphinx source files
+      - run: |
+          find docs -maxdepth 1 ! -name '_build' ! -name '*.rst' ! -name 'conf.py' -exec rm -rf {} +
+
+      # 6. Copy built HTML to /docs
+      - run: cp -r docs/_build/html/* docs/
+
+      # 7. Commit and push changes
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git commit -m "Update built docs [ci skip]" || echo "No changes to commit"
+          git push
