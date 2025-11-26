@@ -1,0 +1,1681 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="smiet.numpy.utilities.geometry.html">
+      
+      
+        <link rel="next" href="smiet.units.html">
+      
+      
+      <link rel="icon" href="">
+    
+    
+      
+        <title>smiet.numpy.utilities.trace_utils module - SMIET 0.7 documentation</title>
+      
+    
+    
+      
+        
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.acf80fe7f4d9ef9e2.min.css?v=9e56d0d2" />
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="SMIET 0.7 documentation" class="md-header__button md-logo" aria-label="SMIET 0.7 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SMIET 0.7 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              smiet.numpy.utilities.trace_utils module
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="SMIET 0.7 documentation" class="md-nav__button md-logo" aria-label="SMIET 0.7 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+    </a>
+    SMIET 0.7 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Sections in this documentation:<wbr></span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Sections in this documentation:<wbr></span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>How to use logging in this package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conventions_units.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Conventions in this package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minimal_example.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Minimal Example</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-synthesis/ts_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>A User’s Guide to Template Synthesis</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../numpy/numpy_index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    <span>Num<wbr>Py module</span>
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Num<wbr>Py module</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/module_structure.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Module structure</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../numpy/package_documentation.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    <span>Package documentation</span>
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_5_2" id="__nav_1_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Package documentation</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smiet.numpy.io.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>numpy.<wbr>io package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smiet.numpy.synthesis.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>numpy.<wbr>synthesis module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_2_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="smiet.numpy.utilities.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>numpy.<wbr>utilities package</span>
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_5_2_3" id="__nav_1_5_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_1_5_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_5_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            <span>smiet.<wbr>numpy.<wbr>utilities package</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5_2_3_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="smiet.numpy.utilities.html#submodules" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    <span>Submodules</span>
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_5_2_3_1" id="__nav_1_5_2_3_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_1_5_2_3_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_5_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Submodules</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smiet.numpy.utilities.cs_transformations.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>numpy.<wbr>utilities.<wbr>cs_<wbr>transformations module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smiet.numpy.utilities.geometry.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>numpy.<wbr>utilities.<wbr>geometry module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>numpy.<wbr>utilities.<wbr>trace_<wbr>utils module</span>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>numpy.<wbr>utilities.<wbr>trace_<wbr>utils module</span>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace (Python function) — Bandpass filter a trace between f_min and f_max. Both should be provided in the internal unit system, just like the trace_sampling parameter. The trace array can be multidimensional, in which case the sample_axis parameter indicates which dimension should be taken as the time samples (ie this parameter is passed on to the np.fft.rfft call)."><span>smiet.<wbr>numpy.<wbr>utilities.<wbr>trace_<wbr>utils.<wbr>bandpass_<wbr>filter_<wbr>trace</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.numpy.utilities.trace_utils.bandpass_filter_trace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace (Python parameter) — The array containing the time traces to be filtered"><span>trace</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace_sampling" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace_sampling (Python parameter) — The sampling interval of the time traces, in internal units"><span>trace_<wbr>sampling</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_min" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_min (Python parameter) — The lower frequency to filter by, in internal units"><span>f_<wbr>min</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_max" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_max (Python parameter) — The upper frequency to filter by, in internal units"><span>f_<wbr>max</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.sample_axis" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.sample_axis (Python parameter) — The axis of trace which contains the time samples"><span>sample_<wbr>axis</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB (Python function) — Reconstruct traces on all arms from vxvxB-arm simulation (where geo and ce are orthogonal)."><span>smiet.<wbr>numpy.<wbr>utilities.<wbr>trace_<wbr>utils.<wbr>reconstruct_<wbr>starshape_<wbr>from_<wbr>vxvx<wbr>B</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.geo_traces" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.geo_traces (Python parameter) — Geomagnetic traces on the vxvxB arm, shape (n_antennas, n_samples, n_slices)"><span>geo_<wbr>traces</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.ce_traces" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.ce_traces (Python parameter) — Charge-excess traces on the vxvxB arm, shape (n_antennas, n_samples, n_slices)"><span>ce_<wbr>traces</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.antenna_positions_vvB" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.antenna_positions_vvB (Python parameter) — Positions of antennas on vxvxB arm (distance in shower plane), shape (n_antennas,)"><span>antenna_<wbr>positions_<wbr>vv<wbr>B</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.number_of_arms" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.number_of_arms (Python parameter) — Total number of star-shape arms to reconstruct"><span>number_<wbr>of_<wbr>arms</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB (Python function) — Adjust the (synthesised) traces on the vxB axis."><span>smiet.<wbr>numpy.<wbr>utilities.<wbr>trace_<wbr>utils.<wbr>transform_<wbr>traces_<wbr>on_<wbr>vx<wbr>B</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_geo" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_geo (Python parameter) — The electric field traces of the geomagnetic component, shaped as (NANTS, NSAMPLES)"><span>my_<wbr>geo</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_ce" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_ce (Python parameter) — The electric field traces of the charge-excess component, shaped as (NANTS, NSAMPLES)"><span>my_<wbr>ce</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.x" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.x (Python parameter) — the x-coordinates of the antennas in the vxB axis, shaped as (NANTS,)."><span>x</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.y" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.y (Python parameter) — the y-coordinates of the antennas in the vxvxB axis, shaped as (NANTS,)."><span>y</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.vxB_axis_mode" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.vxB_axis_mode (Python parameter) — Operation to perform on the vxB axis."><span>vx<wbr>B_<wbr>axis_<wbr>mode</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="smiet.units.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>smiet.<wbr>units module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jax/jax_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>JAX module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../corsika/corsika_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Tools for CORSIKA/Co<wbr>REAS</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Release notes</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace (Python function) — Bandpass filter a trace between f_min and f_max. Both should be provided in the internal unit system, just like the trace_sampling parameter. The trace array can be multidimensional, in which case the sample_axis parameter indicates which dimension should be taken as the time samples (ie this parameter is passed on to the np.fft.rfft call)."><span>smiet.<wbr>numpy.<wbr>utilities.<wbr>trace_<wbr>utils.<wbr>bandpass_<wbr>filter_<wbr>trace</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.numpy.utilities.trace_utils.bandpass_filter_trace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace (Python parameter) — The array containing the time traces to be filtered"><span>trace</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace_sampling" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace_sampling (Python parameter) — The sampling interval of the time traces, in internal units"><span>trace_<wbr>sampling</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_min" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_min (Python parameter) — The lower frequency to filter by, in internal units"><span>f_<wbr>min</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_max" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_max (Python parameter) — The upper frequency to filter by, in internal units"><span>f_<wbr>max</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.sample_axis" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.sample_axis (Python parameter) — The axis of trace which contains the time samples"><span>sample_<wbr>axis</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB (Python function) — Reconstruct traces on all arms from vxvxB-arm simulation (where geo and ce are orthogonal)."><span>smiet.<wbr>numpy.<wbr>utilities.<wbr>trace_<wbr>utils.<wbr>reconstruct_<wbr>starshape_<wbr>from_<wbr>vxvx<wbr>B</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.geo_traces" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.geo_traces (Python parameter) — Geomagnetic traces on the vxvxB arm, shape (n_antennas, n_samples, n_slices)"><span>geo_<wbr>traces</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.ce_traces" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.ce_traces (Python parameter) — Charge-excess traces on the vxvxB arm, shape (n_antennas, n_samples, n_slices)"><span>ce_<wbr>traces</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.antenna_positions_vvB" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.antenna_positions_vvB (Python parameter) — Positions of antennas on vxvxB arm (distance in shower plane), shape (n_antennas,)"><span>antenna_<wbr>positions_<wbr>vv<wbr>B</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.number_of_arms" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.number_of_arms (Python parameter) — Total number of star-shape arms to reconstruct"><span>number_<wbr>of_<wbr>arms</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB" class="md-nav__link">
+    
+      <span aria-label="Python function" class="objinfo-icon objinfo-icon__procedure" title="Python function">F</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB (Python function) — Adjust the (synthesised) traces on the vxB axis."><span>smiet.<wbr>numpy.<wbr>utilities.<wbr>trace_<wbr>utils.<wbr>transform_<wbr>traces_<wbr>on_<wbr>vx<wbr>B</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB-parameters" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Parameters</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_geo" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_geo (Python parameter) — The electric field traces of the geomagnetic component, shaped as (NANTS, NSAMPLES)"><span>my_<wbr>geo</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_ce" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_ce (Python parameter) — The electric field traces of the charge-excess component, shaped as (NANTS, NSAMPLES)"><span>my_<wbr>ce</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.x" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.x (Python parameter) — the x-coordinates of the antennas in the vxB axis, shaped as (NANTS,)."><span>x</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.y" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.y (Python parameter) — the y-coordinates of the antennas in the vxvxB axis, shaped as (NANTS,)."><span>y</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.vxB_axis_mode" class="md-nav__link">
+    
+      <span aria-label="Python parameter" class="objinfo-icon objinfo-icon__sub-data" title="Python parameter">p</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.vxB_axis_mode (Python parameter) — Operation to perform on the vxB axis."><span>vx<wbr>B_<wbr>axis_<wbr>mode</span></span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                
+                
+                  
+
+
+<h1 id="module-smiet.numpy.utilities.trace_utils"><span id="smiet-numpy-utilities-trace-utils-module"></span>smiet.numpy.utilities.trace_utils module<a class="headerlink" href="#module-smiet.numpy.utilities.trace_utils" title="Link to this heading">¶</a></h1>
+<dl class="py function objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace">
+<span class="sig-prename descclassname"><span class="pre">smiet.numpy.utilities.trace_utils.</span></span><span class="sig-name descname"><span class="pre">bandpass_filter_trace</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace" title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace (Python parameter) — The array containing the time traces to be filtered"><span class="n"><span class="pre">trace</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace_sampling" title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace_sampling (Python parameter) — The sampling interval of the time traces, in internal units"><span class="n"><span class="pre">trace_sampling</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_min" title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_min (Python parameter) — The lower frequency to filter by, in internal units"><span class="n"><span class="pre">f_min</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_max" title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_max (Python parameter) — The upper frequency to filter by, in internal units"><span class="n"><span class="pre">f_max</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.sample_axis" title="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.sample_axis (Python parameter) — The axis of trace which contains the time samples"><span class="n"><span class="pre">sample_axis</span></span></a><span class="o"><span class="pre">=</span></span><code class="code python default_value docutils literal highlight highlight-python"><span class="mi">0</span></code></em></span><span class="sig-paren">)</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace" title="Link to this definition">¶</a></dt>
+<dd><p>Bandpass filter a trace between <cite>f_min</cite> and <cite>f_max</cite>. Both should be provided in the internal unit
+system, just like the <cite>trace_sampling</cite> parameter. The <cite>trace</cite> array can be multidimensional, in
+which case the <cite>sample_axis</cite> parameter indicates which dimension should be taken as the time
+samples (ie this parameter is passed on to the <cite>np.fft.rfft</cite> call).</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace-parameters">Parameters<span class="colon">:</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-parameters" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace"><span class="sig-name descname">trace</span><span class="p"> : </span><span class="desctype"><span class="desctype">np.ndarray</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace" title="Permalink to this definition">¶</a></dt><dd><p>The array containing the time traces to be filtered</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace_sampling"><span class="sig-name descname">trace_sampling</span><span class="p"> : </span><span class="desctype"><span class="desctype">float</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.trace_sampling" title="Permalink to this definition">¶</a></dt><dd><p>The sampling interval of the time traces, in internal units</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_min"><span class="sig-name descname">f_min</span><span class="p"> : </span><span class="desctype"><span class="desctype">float</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_min" title="Permalink to this definition">¶</a></dt><dd><p>The lower frequency to filter by, in internal units</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_max"><span class="sig-name descname">f_max</span><span class="p"> : </span><span class="desctype"><span class="desctype">float</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.f_max" title="Permalink to this definition">¶</a></dt><dd><p>The upper frequency to filter by, in internal units</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace.sample_axis"><span class="sig-name descname">sample_axis</span><span class="p"> : </span><span class="desctype"><span class="desctype">int, default=0</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace.sample_axis" title="Permalink to this definition">¶</a></dt><dd><p>The axis of <cite>trace</cite> which contains the time samples</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even" id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p><strong>filtered_trace</strong> – The filtered traces, in the same shape as <cite>trace</cite></p>
+</dd>
+<dt class="field-odd" id="smiet.numpy.utilities.trace_utils.bandpass_filter_trace-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.bandpass_filter_trace-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>To avoid issues when the maximum of the trace is too close to the edge, all traces are first
+shifted to have their maxima more or less in the middle. After the filter has been applied,
+the traces are rolled back so that they are on same time axis as the input traces.</p>
+</dd></dl>
+
+<dl class="py function objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB">
+<span class="sig-prename descclassname"><span class="pre">smiet.numpy.utilities.trace_utils.</span></span><span class="sig-name descname"><span class="pre">reconstruct_starshape_from_vxvxB</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.geo_traces" title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.geo_traces (Python parameter) — Geomagnetic traces on the vxvxB arm, shape (n_antennas, n_samples, n_slices)"><span class="n"><span class="pre">geo_traces</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.ce_traces" title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.ce_traces (Python parameter) — Charge-excess traces on the vxvxB arm, shape (n_antennas, n_samples, n_slices)"><span class="n"><span class="pre">ce_traces</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.antenna_positions_vvB" title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.antenna_positions_vvB (Python parameter) — Positions of antennas on vxvxB arm (distance in shower plane), shape (n_antennas,)"><span class="n"><span class="pre">antenna_positions_vvB</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.number_of_arms" title="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.number_of_arms (Python parameter) — Total number of star-shape arms to reconstruct"><span class="n"><span class="pre">number_of_arms</span></span></a><span class="o"><span class="pre">=</span></span><code class="code python default_value docutils literal highlight highlight-python"><span class="mi">8</span></code></em></span><span class="sig-paren">)</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB" title="Link to this definition">¶</a></dt>
+<dd><p>Reconstruct traces on all arms from vxvxB-arm simulation (where geo and ce are orthogonal).</p>
+<p>This is used for generating star-shapes from simulations that only have antennas on the
+vxvxB arm. The traces on the other arms are simply copied from the vxvxB arm, and the
+antenna positions are rotated accordingly.</p>
+<p>This can also be passed traces synthesised for all slices. In that case, the output traces will
+have the same number of slices. If only at the ground, the n_slices = 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB-parameters">Parameters<span class="colon">:</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB-parameters" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.geo_traces"><span class="sig-name descname">geo_traces</span><span class="p"> : </span><span class="desctype"><span class="desctype">np.ndarray</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.geo_traces" title="Permalink to this definition">¶</a></dt><dd><p>Geomagnetic traces on the vxvxB arm, shape (n_antennas, n_samples, n_slices)</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.ce_traces"><span class="sig-name descname">ce_traces</span><span class="p"> : </span><span class="desctype"><span class="desctype">np.ndarray</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.ce_traces" title="Permalink to this definition">¶</a></dt><dd><p>Charge-excess traces on the vxvxB arm, shape (n_antennas, n_samples, n_slices)</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.antenna_positions_vvB"><span class="sig-name descname">antenna_positions_vvB</span><span class="p"> : </span><span class="desctype"><span class="desctype">np.ndarray</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.antenna_positions_vvB" title="Permalink to this definition">¶</a></dt><dd><p>Positions of antennas on vxvxB arm (distance in shower plane), shape (n_antennas,)</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.number_of_arms"><span class="sig-name descname">number_of_arms</span><span class="p"> : </span><span class="desctype"><span class="desctype">int, default=8</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB.number_of_arms" title="Permalink to this definition">¶</a></dt><dd><p>Total number of star-shape arms to reconstruct</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even" id="smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.reconstruct_starshape_from_vxvxB-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>geo_traces_starshape</strong> (<em>np.ndarray</em>) – Geomagnetic traces on all arms, shape (n_antennas*number_of_arms, n_samples, n_slices)</p></li>
+<li><p><strong>ce_traces_starshape</strong> (<em>np.ndarray</em>) – Charge-excess traces on all arms, shape (n_antennas*number_of_arms, n_samples, n_slices)</p></li>
+<li><p><strong>antenna_positions_starshape</strong> (<em>np.ndarray</em>) – Antenna positions on all arms, shape (n_antennas*number_of_arms, 3)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function objdesc">
+<dt class="sig sig-object highlight sig-wrap py" id="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB">
+<span class="sig-prename descclassname"><span class="pre">smiet.numpy.utilities.trace_utils.</span></span><span class="sig-name descname"><span class="pre">transform_traces_on_vxB</span></span><span class="sig-paren">(</span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_geo" title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_geo (Python parameter) — The electric field traces of the geomagnetic component, shaped as (NANTS, NSAMPLES)"><span class="n"><span class="pre">my_geo</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_ce" title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_ce (Python parameter) — The electric field traces of the charge-excess component, shaped as (NANTS, NSAMPLES)"><span class="n"><span class="pre">my_ce</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.x" title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.x (Python parameter) — the x-coordinates of the antennas in the vxB axis, shaped as (NANTS,)."><span class="n"><span class="pre">x</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.y" title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.y (Python parameter) — the y-coordinates of the antennas in the vxvxB axis, shaped as (NANTS,)."><span class="n"><span class="pre">y</span></span></a></em>, </span><span class="sig-param-decl"><em class="sig-param"><a class="n reference internal" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.vxB_axis_mode" title="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.vxB_axis_mode (Python parameter) — Operation to perform on the vxB axis."><span class="n"><span class="pre">vxB_axis_mode</span></span></a><span class="o"><span class="pre">=</span></span><code class="code python default_value docutils literal highlight highlight-python"><span class="s1">&#39;replace&#39;</span></code></em></span><span class="sig-paren">)</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB" title="Link to this definition">¶</a></dt>
+<dd><p>Adjust the (synthesised) traces on the vxB axis.</p>
+<p>This function is meant to alter the traces on the vxB axis, as in the current
+version of the SMIET software the vxB axis cannot be synthesised. There are several
+strategies to handle this, and applying them should be facilitated by this function.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB-parameters">Parameters<span class="colon">:</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB-parameters" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><dl class="simple api-field highlight">
+<dt id="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_geo"><span class="sig-name descname">my_geo</span><span class="p"> : </span><span class="desctype"><span class="desctype">np.ndarray</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_geo" title="Permalink to this definition">¶</a></dt><dd><p>The electric field traces of the geomagnetic component, shaped as (NANTS, NSAMPLES)</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_ce"><span class="sig-name descname">my_ce</span><span class="p"> : </span><span class="desctype"><span class="desctype">np.ndarray</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.my_ce" title="Permalink to this definition">¶</a></dt><dd><p>The electric field traces of the charge-excess component, shaped as (NANTS, NSAMPLES)</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.x"><span class="sig-name descname">x</span><span class="p"> : </span><span class="desctype"><span class="desctype">np.ndarray</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.x" title="Permalink to this definition">¶</a></dt><dd><p>the x-coordinates of the antennas in the vxB axis, shaped as (NANTS,).</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.y"><span class="sig-name descname">y</span><span class="p"> : </span><span class="desctype"><span class="desctype">np.ndarray</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.y" title="Permalink to this definition">¶</a></dt><dd><p>the y-coordinates of the antennas in the vxvxB axis, shaped as (NANTS,).</p>
+</dd>
+<dt id="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.vxB_axis_mode"><span class="sig-name descname">vxB_axis_mode</span><span class="p"> : </span><span class="desctype"><span class="desctype">{&quot;replace&quot;, &quot;zero&quot;}</span></span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB.vxB_axis_mode" title="Permalink to this definition">¶</a></dt><dd><p>Operation to perform on the vxB axis. If “replace” (the default), the traces from the
+vxvxB component will be copied over to the vxB component. If “zero”, the vxB component
+will be set to zero.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even" id="smiet.numpy.utilities.trace_utils.transform_traces_on_vxB-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.numpy.utilities.trace_utils.transform_traces_on_vxB-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>my_geo_adjusted</strong> (<em>np.ndarray</em>) – The adjusted geomagnetic component traces, shaped as (NANTS, NSAMPLES)</p></li>
+<li><p><strong>my_ce_adjusted</strong> (<em>np.ndarray</em>) – The adjusted charge-excess component traces, shaped as (NANTS, NSAMPLES)</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2025, Mitja Desmet, Keito Watanabe.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    8.2.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+        <script src="../_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+    
+  </body>
+</html>

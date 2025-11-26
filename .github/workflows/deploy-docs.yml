@@ -25,12 +25,7 @@ jobs:
 
       # 4. Build HTML in temporary folder
       - run: |
-          sphinx-build -M html docs/ build -D html_baseurl="https://kwat0308.github.io/smiet-docs/"
-
-      # 5. Copy built HTML to /docs
-      - run: cp -r build/html/* docs/
-
-      - run : rm -rf build
+          sphinx-build -b html docs/ build -D html_baseurl="https://kwat0308.github.io/smiet-docs/"
 
       # 6. Commit and push changes
       - name: Commit and push

@@ -1,0 +1,1187 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="file_generation.html">
+      
+      
+        <link rel="next" href="package_documentation.html">
+      
+      
+      <link rel="icon" href="">
+    
+    
+      
+        <title>Generating a Full Library of Origin Showers - SMIET 0.7 documentation</title>
+      
+    
+    
+      
+        
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../_static/sphinx_immaterial_theme.acf80fe7f4d9ef9e2.min.css?v=9e56d0d2" />
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-the-library-generator-works" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="SMIET 0.7 documentation" class="md-header__button md-logo" aria-label="SMIET 0.7 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SMIET 0.7 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generating a Full Library of Origin Showers
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="SMIET 0.7 documentation" class="md-nav__button md-logo" aria-label="SMIET 0.7 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+    </a>
+    SMIET 0.7 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Sections in this documentation:<wbr></span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Sections in this documentation:<wbr></span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>How to use logging in this package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../conventions_units.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Conventions in this package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../minimal_example.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Minimal Example</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-synthesis/ts_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>A User’s Guide to Template Synthesis</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../numpy/numpy_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Num<wbr>Py module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jax/jax_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>JAX module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_7" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="corsika_index.html" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    <span>Tools for CORSIKA/Co<wbr>REAS</span>
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Tools for CORSIKA/Co<wbr>REAS</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_7_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="corsika_index.html#generating-a-full-library-of-origin-showers" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    <span>Generating a Full Library of Origin Showers</span>
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_7_1" id="__nav_1_7_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_7_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Generating a Full Library of Origin Showers</span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="file_generation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Some notes on the CORSIKA file generation</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    <span>Generating a Full Library of Origin Showers</span>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Generating a Full Library of Origin Showers</span>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-library-generator-works" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>How the library generator works</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-the-library-generator" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Initializing the library generator</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-the-steering-files" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating the steering files</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generating the steering files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-paths" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Setting up paths</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id1" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating the steering files</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-the-steering-files" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Submitting the steering files</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-a-single-origin-shower-with-the-library" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating a single origin shower with the library</span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    <span>Example</span>
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="#example" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Example</span>
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-library-generator-works" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>How the library generator works</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-the-library-generator" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Initializing the library generator</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-the-steering-files" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating the steering files</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generating the steering files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-paths" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Setting up paths</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id1" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating the steering files</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-the-steering-files" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Submitting the steering files</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-a-single-origin-shower-with-the-library" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating a single origin shower with the library</span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="package_documentation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Package documentation</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Release notes</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-the-library-generator-works" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>How the library generator works</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#initializing-the-library-generator" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Initializing the library generator</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-the-steering-files" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating the steering files</span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Generating the steering files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-paths" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Setting up paths</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id1" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating the steering files</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#submitting-the-steering-files" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Submitting the steering files</span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generating-a-single-origin-shower-with-the-library" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Generating a single origin shower with the library</span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                
+                
+                  
+
+
+<h1 id="generating-a-full-library-of-origin-showers">Generating a Full Library of Origin Showers<a class="headerlink" href="#generating-a-full-library-of-origin-showers" title="Link to this heading">¶</a></h1>
+<p>In <code class="docutils literal notranslate"><span class="pre">generate_origin_library</span></code>, we provide the <code class="docutils literal notranslate"><span class="pre">OriginLibraryGenerator</span></code> class to
+generate input steering files (INP, LIST, REAS) for a grid of zenith angles and
+<span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span> values, which can then be simulated with CORSIKA/CoREAS.</p>
+<p>In the following sections, we describe on how to run your own origin shower library.</p>
+<h2 id="how-the-library-generator-works">How the library generator works<a class="headerlink" href="#how-the-library-generator-works" title="Link to this heading">¶</a></h2>
+<p>The library generator creates steering files for a grid of zenith angles and
+<span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span> values. While it is trivial to set the zenith angles, setting the <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span> values
+cannot be done directly in CORSIKA. Instead, we set the height of first interaction
+to achieve the desired <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span>. This is done using fitting functions
+based on a large set of CONEX simulation, which (in general) depends on the site and
+hadronic interaction model used. The fitting functions are
+stored in the <cite>first_height_parameters</cite> directory.</p>
+<h2 id="initializing-the-library-generator">Initializing the library generator<a class="headerlink" href="#initializing-the-library-generator" title="Link to this heading">¶</a></h2>
+<p>The library generator depends on a few key parameters that are globally set for all
+origin showers:
+- <cite>sim_primary</cite> : the primary mass composition (e.g. “proton”, “iron”, etc.) of the cosmic ray initiating the shower.
+- <cite>sim_energy</cite> : the primary energy of the cosmic ray initiating the shower (in GeV).
+- <cite>site</cite> : the site configuration for the simulation (magnetic field and observation level). Currently, “lofar” and “auger” is supported.
+- <cite>atm_model</cite> : the atmosphere model used for the simulation. Currently, only model numbers following those used in CORSIKA is supported, and GDAS atmospheres are not yet supported</p>
+<p>The primary energy and mass composition are globally set for all simulations, as the template synthesis
+method does not depend strongly on these parameters (due to air-shower universality). The site and atmosphere
+settings are also fixed, as they define the magnetic field and observation level for the simulations.</p>
+<p>In the future, we plan to add more site configurations.</p>
+<h2 id="generating-the-steering-files">Generating the steering files<a class="headerlink" href="#generating-the-steering-files" title="Link to this heading">¶</a></h2>
+<p>Once the library generator is initialized, we can set up the steering files for the generation of
+the origin shower library.</p>
+<h3 id="setting-up-paths">Setting up paths<a class="headerlink" href="#setting-up-paths" title="Link to this heading">¶</a></h3>
+<p>First, we need to set up the paths where the steering files will be written to. This is done
+using the <cite>setup_paths</cite> function. The function requires the parent path to the CORSIKA run executable,
+the path where the steering files will be written to, the type of cluster in which the simulations
+will be run, and the type of the hadronic interaction model used.</p>
+<p>The cluster type is here so that the appropriate submission scripts can be generated. Currently, only “horeka” is supported.</p>
+<p>To use this functionality, add your default submission script in the <code class="docutils literal notranslate"><span class="pre">corsika/submit_templates</span></code>
+directory, with the name <code class="docutils literal notranslate"><span class="pre">submit_{cluster_type}.sh</span></code>.</p>
+<p>The following arguments must be available in the submission script, in the given order:
+1. Xmax
+2. Zenith angle
+3. the run directory
+4. number of nodes to run the simulation on
+5. number of cores to use per node
+6. the name of the corsika executable
+7. the run ID of the simulation</p>
+<p>Please take a look at the existing submission script for reference.</p>
+<p>The hadronic interaction model is set to use the correct CORSIKA executable, and to import the correct fitting functions
+used to generate the height of first interaction, which sets the <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span> of the shower. Currently only
+“sibyll” (SIBYLL2.3d) and “qgsjetII” (QGSJETII-04) are supported.</p>
+<div class="warning admonition">
+<p class="admonition-title">Warning</p>
+<p>Currently, the following CORSIKA executable is used to generate the showers:
+<code class="docutils literal notranslate"><span class="pre">mpi_corsika77550Linux_SIBYLL_urqmd_thin_coreas_parallel_runner</span></code>, and is hardcoded in the
+script.</p>
+<p>This executable can be compiled by including the MPI option with CORSIKA 7.7500, SIBYLL 2.3d,
+and UrQMD 1.3. Please refer to the CORSIKA documentation for more information on how to
+compile CORSIKA with these options.</p>
+</div>
+<h3 id="id1">Generating the steering files<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>After setting up the paths, we can generate the steering files for the full library of origin showers.
+This is done using the <cite>generate_submit_files</cite> function. The function can set:</p>
+<ul class="simple">
+<li><p>a grid of zenith angles (minimum, maximum + step, step), which will generate linearly spaced zenith angles in degrees,</p></li>
+<li><p>a grid of <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span> values (minimum, maximum + step, step), which will generate linearly spaced <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span> values in g/cm<sup>2</sup>,</p></li>
+<li><p>the number of different random seeds to simulate for each configuration, to account for shower-to-shower fluctuations</p></li>
+<li><p>whether to generate the library only on the vxvxB arm (default) or on a rotated star-shape antenna layout.</p></li>
+</ul>
+<p>Additionally, the number of nodes and number of cores per node should be set here.</p>
+<p>Running this function will generate the following directory structure for a single library:
+.. code-block:: text</p>
+<blockquote>
+<div><p>/path/to/steering_files/
+├── sim_labels.txt
+├── coreas_to_hdf5_origin.py
+├── hdf5_sims/
+├── zen0/
+│   ├── xmax600/
+|   |   ├── logs/
+│   │   ├── submit.sh
+│   │   ├── SIM000000/
+│   │   │   ├── INP file
+│   │   │   ├── LIST file
+│   │   │   └── REAS file
+│   │   ├── SIM000010/
+│   │   └── …
+│   ├── xmax700/
+│   └── …
+├── zen3/
+└── …</p>
+</div></blockquote>
+<p>The generated files and directories are as follows:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sim_labels.txt</span></code> : a summary file containing the mapping between simulation number, zenith angle, <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span>, and iteration number (random seed)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coreas_to_hdf5_origin.py</span></code> : a convenience script to convert the generated CoREAS output files to HDF5 format for use with template synthesis. This script is based on the <code class="docutils literal notranslate"><span class="pre">coreas_to_hdf5.py</span></code> script available in CoREAS, but modified to work with origin showers, where the samples are bandwidth limited to [30, 500] MHz and downsampled to 2 GHz.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hdf5_sims/</span></code> : a directory where the converted HDF5 files will be stored</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zen{angle}/xmax{value}/SIM{sim_number}/</span></code> : directories containing the steering files for each simulation, organized by zenith angle and <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span> value.</p></li>
+</ul>
+<p>The function returns the full set of paths to the generated steering files, which can be used to submit the simulations to the cluster.</p>
+<h2 id="submitting-the-steering-files">Submitting the steering files<a class="headerlink" href="#submitting-the-steering-files" title="Link to this heading">¶</a></h2>
+<p>Once the steering files are generated, you can submit the simulations to your computing cluster.</p>
+<p>This can be conveniently done with the <cite>submit_jobs</cite> function, which takes the paths
+to the steering files as input, and submits them to the cluster using the generated submission scripts.</p>
+<h2 id="generating-a-single-origin-shower-with-the-library">Generating a single origin shower with the library<a class="headerlink" href="#generating-a-single-origin-shower-with-the-library" title="Link to this heading">¶</a></h2>
+<p>In addition to generating a full library of origin showers, the library generator can also be used to generate
+a single origin shower with the <cite>generate_single_origin_shower</cite> function. This function takes the same
+parameters as the full library generator, but only generates the steering files for a single
+origin shower with the specified zenith angle, <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span>, and simulation run number.</p>
+<h1 id="example">Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h1>
+<p>The following example shows how to generate a full library of origin showers with
+zenith angles from 0 to 60 degrees in steps of 3 degrees, <span class="math notranslate nohighlight">\(X_\mathrm{max}\)</span> values from 600 to 1200 g/cm<sup>2</sup> in steps of 100 g/cm<sup>2</sup>, and 3 different random seeds for each configuration, for antennas on the vxvxB axis.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">template_synthesis.corsika.generate_origin_library</span><span class="w"> </span><span class="kn">import</span> <span class="n">OriginLibraryGenerator</span>
+
+<span class="c1"># Initialize the library generator</span>
+<span class="n">library_generator</span> <span class="o">=</span> <span class="n">OriginLibraryGenerator</span><span class="p">(</span>
+    <span class="n">sim_primary</span><span class="o">=</span><span class="s2">&quot;proton&quot;</span><span class="p">,</span>
+    <span class="n">sim_energy</span><span class="o">=</span><span class="mf">1e8</span><span class="p">,</span>  <span class="c1"># in GeV</span>
+    <span class="n">site</span><span class="o">=</span><span class="s2">&quot;lofar&quot;</span><span class="p">,</span>
+    <span class="n">atm_model</span><span class="o">=</span><span class="mi">17</span> <span class="c1"># US standard by Keilhauer</span>
+<span class="p">)</span>
+
+<span class="c1"># Setup paths</span>
+<span class="n">library_generator</span><span class="o">.</span><span class="n">setup_paths</span><span class="p">(</span>
+    <span class="n">corsika_runner_path</span><span class="o">=</span><span class="s2">&quot;/path/to/corsika/executable&quot;</span><span class="p">,</span>
+    <span class="n">run_dir</span><span class="o">=</span><span class="s2">&quot;/path/to/steering/files&quot;</span><span class="p">,</span>
+    <span class="n">cluster_type</span><span class="o">=</span><span class="s2">&quot;horeka&quot;</span><span class="p">,</span>
+    <span class="n">hadr_model</span><span class="o">=</span><span class="s2">&quot;sibyll&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Generate steering files for the full library</span>
+<span class="n">steering_file_paths</span> <span class="o">=</span> <span class="n">library_generator</span><span class="o">.</span><span class="n">generate_submit_files</span><span class="p">(</span>
+    <span class="n">zenith_angles</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">xmax_values</span> <span class="o">=</span> <span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">n_sims</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_nodes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">n_cores_per_node</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+    <span class="n">vxvxB</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Submit the jobs to the cluster</span>
+<span class="n">library_generator</span><span class="o">.</span><span class="n">submit_jobs</span><span class="p">(</span><span class="n">steering_file_paths</span><span class="p">)</span>
+</code></pre></div>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2025, Mitja Desmet, Keito Watanabe.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    8.2.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+        <script src="../_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+        <script id="MathJax-script" src="../_static/mathjax/tex-mml-chtml.js?v=cadf963e"></script>
+    
+  </body>
+</html>
