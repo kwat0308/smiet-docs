@@ -25,7 +25,9 @@ jobs:
 
       # 4. Build HTML in temporary folder
       - run: |
-          sphinx-build -b html docs/ build/html -D html_baseurl="https://kwat0308.github.io/smiet-docs/"
+          cd docs
+          sphinx-build -b html _build build -D html_baseurl="https://kwat0308.github.io/smiet-docs/"
+          rm -rf _build
 
       # 6. Commit and push changes
       - name: Commit and push
