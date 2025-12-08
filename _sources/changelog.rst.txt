@@ -1,6 +1,16 @@
 Release notes
 =============
 
+Version 0.8.2
+-------------
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- JAX implementation now available in SMIETRun, with minimal overhead when using the library.
+- Bugfix in jax.io.CoreasShower where the core was passed when transforming traces. This is now removed.
+- SMIETRun now takes in mandatory `target_xmaxs` and `target_nmaxs` arguments when generating user-defined target showers.
+- `interpax` is now a dependency for the JAX implementation, using cubic interpolation for the correction factors.
+
 Version 0.8.0
 -------------
 

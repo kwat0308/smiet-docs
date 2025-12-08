@@ -600,21 +600,16 @@
 <ol class="arabic simple" start="2">
 <li><p>The JAX version can lead to memory overloads when using large arrays.</p></li>
 </ol>
-<p>As JAX internally uses a just-in-time compilation (JIT) approach, it can lead to some memory issues when using large arrays. This is due to the fact that JAX will try to compile the function with the largest array size, which can lead to memory issues. To mitigate this, we recommend users to use the origin shower library, which stores origin showers with minimal memory constraints.</p>
-<ol class="arabic simple" start="3">
-<li><p>The JAX version does not include synthesis of the phase information.</p></li>
-</ol>
-<p>While the NumPy version also synthesises the phase information through the arrival time, this is not yet implemented in the JAX version. As such the JAX version is limited to the amplitude synthesis only (and thus limited to a single geometry per sliced shower). This is a known limitation and will be implemented in a future version.</p>
-<ol class="arabic" start="4">
+<p>As JAX internally uses a just-in-time compilation (JIT) approach, it can lead to some memory issues when using large arrays ( i.e. origin showers with many antennas) . This is due to the fact that JAX will try to compile the function with the largest array size, which can lead to memory issues. To mitigate this, we recommend users to use the origin shower library, which stores origin showers with minimal memory constraints.</p>
+<ol class="arabic" start="3">
 <li><p>The JAX version relies on the following external modules:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">jax</span></code>: The JAX library is used for automatic differentiation and GPU/TPU acceleration. This is the core of the JAX version which allows for the performance improvements. In particular, many functionalities are written in <code class="docutils literal notranslate"><span class="pre">jax.numpy</span></code>, which is the numpy API for JAX.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">jax_radio_tools</span></code> : This is a library that provides tools for radio signal processing in JAX, similar to the already widely used <code class="docutils literal notranslate"><span class="pre">radio_tools</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">interpax</span></code> : An interpolation package for JAX. More details are given <a class="reference external" href="https://interpax.readthedocs.io/en/latest/">here</a>.</p></li>
 </ul>
 <p>These libraries are necessary for the JAX version to function properly, and are not required for the NumPy version.</p>
 </li>
-</ol>
-<ol class="arabic simple" start="6">
 <li><p>Syntactic differences</p></li>
 </ol>
 <p>There are several naming conventions that differ between the JAX and NumPy versions. While most syntactic differences have been resolved, there may be minor differences in the accessing of variables. Please raise an issue on GitLab if you encounter any issues regarding this.</p>

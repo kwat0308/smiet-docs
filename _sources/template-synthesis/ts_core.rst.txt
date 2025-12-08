@@ -99,17 +99,22 @@ The target showers can be set in two ways:
     import numpy as np
 
     target_xmaxs = np.array([710.0, 800])
+    target_nmaxs = np.array([1e8, 2e8])
     target_zeniths = np.deg2rad(np.array([37.5, 38.5]))
 
     grammage_grid = np.linspace(0, 1100, 200)
     long_profs = []
-    for xmax in target_xmaxs:
-        long_profs.append( gaisser_hillas_function(grammage_grid, nmax = 1e8, x0 = 0.0, xmax=xmax, lmbda = 70.0))
+    for i, xmax in enumerate(target_xmaxs):
+        long_profs.append( gaisser_hillas_function(
+            grammage_grid, nmax = target_nmaxs[i], x0 = 0.0, xmax=target_xmaxs[i], lmbda = 70.0
+        ))
 
     smiet_runner.generate_target_showers(
         target_grammage = grammage_grid,
         target_longs = long_profs,
-        target_zeniths = target_zeniths
+        target_zeniths = target_zeniths,
+        target_xmaxs = target_xmaxs,
+        target_nmaxs = target_nmaxs
     )
 
 Synthesizing the Target Showers

@@ -10,7 +10,8 @@ The main module of the JAX version of template synthesis (unlike the NumPy Versi
     To import ``jax.numpy``, use the following command:
 
     .. code-block::
-
+        import jax
+        jax.config.update('jax_enable_x64', True)  # enable double precision if needed
         import jax.numpy as jnp
 
     and now you can use ``jnp`` instead of ``np`` in your code.
@@ -174,12 +175,6 @@ Example to generate a template for a given shower within a frequency bandwidth o
     sliced_shower = SlicedShower(
         file_path="path/to/simulation/file",
         gdas_file="path/to/gdas/file",
-    )
-    # apply cuts 
-    sliced_shower.apply_trace_cuts(
-        f_min=30 * units.MHz,
-        f_max=80 * units.MHz,
-        delta_t=2 * units.ns,
     )
 
     # make the template
