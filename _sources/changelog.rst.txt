@@ -1,6 +1,14 @@
 Release notes
 =============
 
+Version 0.8.5
+-------------
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- IO of HDF5 files can now be performed without the `Gaisser-Hillas-Fit` contained in the attributes of `atmosphere`. This is useful when working with origin showers that do not have a Gaisser-Hillas fit, e.g. from double-bump type showers. In this case, the user must provide the `xmaxs` and `nmaxs` when synthesizing traces.
+- Before, synthesis did not happen when the number of particles in a given slice is less than 0.0001 * nmax. However, this cannot be easily accessed outside of the synthesis object. This is now accessible in CoreasShower through `self.long_limit_idx`. This may be helpful when plotting the longitudinal profile and wanting to indicate the actual longitudinal profile where the synthesis starts. This feature is not implemented in the JAX version yet.
+
 Version 0.8.4
 -------------
 

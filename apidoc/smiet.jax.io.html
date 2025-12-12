@@ -826,6 +826,44 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.fit_gaisser_hillas (Python method) — Fit a Gaisser-Hillas function to the currently loaded longitudinal profile, to determine the parameters like X_{max} and N_{max}."><span>fit_<wbr>gaisser_<wbr>hillas</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fit_gaisser_hillas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#smiet.jax.io.CoreasShower.get_antenna_position" class="md-nav__link">
     
       <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
@@ -2058,6 +2096,44 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas" class="md-nav__link">
+    
+      <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
+    
+    <span class="md-ellipsis">
+      <span title="smiet.jax.io.CoreasShower.fit_gaisser_hillas (Python method) — Fit a Gaisser-Hillas function to the currently loaded longitudinal profile, to determine the parameters like X_{max} and N_{max}."><span>fit_<wbr>gaisser_<wbr>hillas</span></span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="fit_gaisser_hillas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas-returns" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Returns</span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas-return-type" class="md-nav__link">
+    
+    <span class="md-ellipsis">
+      <span>Return type</span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#smiet.jax.io.CoreasShower.get_antenna_position" class="md-nav__link">
     
       <span aria-label="Python method" class="objinfo-icon objinfo-icon__procedure" title="Python method">M</span>
@@ -3032,6 +3108,26 @@ precedence over the atmosphere model specified in the simulation settings.</p>
 </dd></dl>
 
 <dl class="py method objdesc">
+<dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.fit_gaisser_hillas">
+<span class="sig-name descname"><span class="pre">fit_gaisser_hillas</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas" title="Link to this definition">¶</a></dt>
+<dd><p>Fit a Gaisser-Hillas function to the currently loaded longitudinal profile,
+to determine the parameters like <span class="math notranslate nohighlight">\(X_{max}\)</span> and <span class="math notranslate nohighlight">\(N_{max}\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd" id="smiet.jax.io.CoreasShower.fit_gaisser_hillas-returns">Returns<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas-returns" title="Permalink to this headline">¶</a></dt>
+<dd class="field-odd"><p><strong>popt</strong> – The parameters of the Gaisser-Hillas function, in the order [N, X0, Xmax, p0, p1, p2]
+(p0,p1,p2 are the polynomial coefficients in denominator for lambda)</p>
+</dd>
+<dt class="field-even" id="smiet.jax.io.CoreasShower.fit_gaisser_hillas-return-type">Return type<span class="colon">:</span><a class="headerlink" href="#smiet.jax.io.CoreasShower.fit_gaisser_hillas-return-type" title="Permalink to this headline">¶</a></dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The Gaisser-Hillas function is defined as:</p>
+<div class="math notranslate nohighlight">
+\[f(X) = N \left( \frac{X - X_0}{X_{max} - X_0} \right)^{\frac{X_{max} - X_0}{\lambda}} \exp\left( \frac{X_{max} - X}{\lambda} \right)\]</div>
+</dd></dl>
+
+<dl class="py method objdesc">
 <dt class="sig sig-object highlight py" id="smiet.jax.io.CoreasShower.get_antenna_position">
 <span class="sig-name descname"><span class="pre">get_antenna_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="desctype"><span class="pre">ndarray</span></span></span></span><a class="headerlink" href="#smiet.jax.io.CoreasShower.get_antenna_position" title="Link to this definition">¶</a></dt>
 <dd><p>Get the antenna positions on the ground.</p>
@@ -3448,6 +3544,7 @@ Shape is (2, Nant, Nsamples), where Nant is the number of antennas and Nsamples 
     
       
         <script src="../_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+        <script id="MathJax-script" src="../_static/mathjax/tex-mml-chtml.js"></script>
     
   </body>
 </html>
