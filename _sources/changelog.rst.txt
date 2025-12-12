@@ -1,6 +1,13 @@
 Release notes
 =============
 
+Version 0.8.4
+-------------
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- pulses are now centered around the peak when accessed, both in JAX and Numpy implementations. This avoids issues with time axes when synthesizing traces with different zenith angles. The time traces are also accounted for respectively.
+
 Version 0.8.3
 -------------
 

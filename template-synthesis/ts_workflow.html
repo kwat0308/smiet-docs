@@ -937,6 +937,9 @@ this we retrieve an array of geomagnetic and charge-excess traces, one for each 
 present in the origin.</p>
 <p>To alternatively obtain the traces at each slice, we can use the
 <code class="docutils literal notranslate"><span class="pre">TemplateSynthesis.map_template_to_slices</span></code> method. This will return a list of arrays, one for each slice.</p>
+<p>Note that the synthesised traces are band-pass filtered to the frequency range defined.</p>
+<p>The traces are also automatically shifted in time, such that the peak of the trace is near the center (i.e. pulse-centered). The relative
+timing between antennas, as well as the global timing as defined in CORSIKA is preserved.</p>
 <h2 id="transforming-back-to-vxb-vx-vxb-polarization">Transforming back to vxB / vx(vxB) polarization<a class="headerlink" href="#transforming-back-to-vxb-vx-vxb-polarization" title="Link to this heading">¶</a></h2>
 <p>The synthesised traces are returned in the geomagnetic and charge-excess emission. If you want to transform these
 traces in the vxB and vxvxB coordinate system, you can use the functionality described in <a class="reference internal" href="ts_treatment_of_vxB.html"><span class="doc">Treating synthesised traces for antennas along the vxB axis</span></a>.</p>

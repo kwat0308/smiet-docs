@@ -59,6 +59,11 @@ present in the origin.
 To alternatively obtain the traces at each slice, we can use the
 ``TemplateSynthesis.map_template_to_slices`` method. This will return a list of arrays, one for each slice.
 
+Note that the synthesised traces are band-pass filtered to the frequency range defined.
+
+The traces are also automatically shifted in time, such that the peak of the trace is near the center (i.e. pulse-centered). The relative 
+timing between antennas, as well as the global timing as defined in CORSIKA is preserved.
+
 Transforming back to vxB / vx(vxB) polarization
 -----------------------------------------------
 

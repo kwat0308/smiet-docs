@@ -17,7 +17,7 @@ Origin Showers
 --------------
 
 In order to use template synthesis, you can either:
-- download the origin shower library (~ 80 GB when unpacked) that contains the pre-simulated origin showers on the vx(vxB) arm, or
+- download the origin shower library (~ 13 GB when unpacked) that contains the pre-simulated origin showers on the vx(vxB) arm, or
 - generate your own origin showers.
 
 Some guidance and general tips on how to do this can be found in :doc:`ts_origin_showers`.
