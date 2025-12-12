@@ -1,6 +1,15 @@
 Release notes
 =============
 
+Version 0.8.3
+-------------
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- functionality to remove antennas near the core has been implemented both in JAX and Numpy, by passing the minimum antenna distance from the core to use. The SMIETRun class now takes in this minimum distance as an optional argument when loading the templates.
+- The SMIETRun class also saves the origin and target nmaxs, as they are important for the analysis.
+- The origin and target properties can now be accessed by giving the keyword in the function.
+
 Version 0.8.2
 -------------
 
