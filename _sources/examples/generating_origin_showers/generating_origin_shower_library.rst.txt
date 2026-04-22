@@ -1,0 +1,108 @@
+Generating the Origin Shower Library
+------------------------------------
+
+Here we will show how you can generate the library of origin showers
+that can then be used with the main framework.
+
+.. code:: python
+
+    import os
+    import numpy as np
+    
+    from smiet.corsika import OriginLibraryGenerator
+    from smiet import units
+
+.. code:: python
+
+    import logging
+    
+    logger = logging.getLogger('smiet')
+    logger.setLevel(logging.WARNING)
+
+1. Initialising the Library Generator
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Here you can set the primary composition, energy (in GeV), the
+atmosphere model, and the site (used for the observation level and the
+magnetic field strength).
+
+Currently only ‘auger’ and ‘lofar’ sites are available, and only
+‘proton’ and ‘iron’ simulations are possible.
+
+.. code:: python
+
+    # initialise library generator, setting fixed quantities
+    library_gen = OriginLibraryGenerator(
+        sim_primary = "iron",  # only proton and iron supported for now
+        sim_energy = 10**9 * units.GeV,  # 10^18 eV
+        atm_model= 17,   # only atmosphere models supported for now
+        site = "lofar",  # between auger and lofar now
+    )
+
+2. Set up the paths
+~~~~~~~~~~~~~~~~~~~
+
+Here all the relevant paths can be set up. The following can be set:
+
+- the path to the corsika runner
+- the path in which you want to store the corsika output files
+- the cluster type (currently only horeka-style clusters are supported)
+- the hadronic interaction model to user (sibyll or qgsjet only)
+
+Currently, this assumes that you compiled corsika v77550 with MPI +
+CoREAS plugin + thinning + UrQMD, compiled with a Linux machine
+
+.. code:: python
+
+    # setup paths to the corsika executables and run directory
+    # NOTE: currently assumes that you compiled corsika v77550 with the following:
+    # MPI, CoREAS plugin, thinning, urqmd with a Linux machine
+    library_gen.setup_paths(
+        corsika_runner_path="/home/hk-project-p0022320/wb2359/Projects/coreas/corsika-77550/run",
+        run_dir="./test", # directory to store corsika output files
+        cluster_type = "horeka",  # sets up the submission file
+        hadr_model = "sibyll"
+    )
+
+3. Generating the input cards
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This will generate submission scripts (input cards + submission script)
+for all relevant origin showers:
+
+- zenith angles : the minimum, maximum, and step size of zenith angles
+  in degrees
+- xmax values : similar as above but for Xmax. In this case, the energy
+  & zenith angle will be used with the xmax to set the FIXHEI, based on
+  a CONEX parameterisation.
+- n_sims : this sets the number of simulations generated per (xmax,
+  zenith) pair. This is to emulate shower-to-shower fluctuations.
+- n_nodes : the number of nodes to be used for the computation
+- n_cores_per_node : the number of cpu cores per node used.
+- vxvxB : a boolean flag to only simulate on the vx(vxB) arm or the full
+  star shape. If on the star-shape, then the star-shape will be rotated
+  by 22.5 degrees to avoid antennas on the vxB arm.
+
+.. code:: python
+
+    # produce the directories and submission files
+    submit_filepaths = library_gen.generate_submit_files(
+        zenith_angles= (0, 63, 3),  # min, max, step in degrees
+        xmax_values= (500, 1300, 100), # min, max, step in g/cm^2
+        n_sims= 3, # number of simulations per configuration
+        n_nodes= 2,  # number of nodes to use
+        n_cores_per_node= 76,  # number of cores per node
+        vxvxB= True,  # whether to only simulate on vxvxB arm or not
+    )
+
+4. Submit the jobs
+~~~~~~~~~~~~~~~~~~
+
+This submits all scripts, according to the sbatch system.
+
+.. code:: python
+
+    # now submit the files if you want to
+    # NB: only supports sbatch system for now
+    # comment out to avoid submitting jobs immediately
+    # library_gen.submit_jobs(submit_filepaths)

@@ -1,0 +1,105 @@
+Generating a Single Origin Shower
+=================================
+
+Here we will show how you can generate a single origin shower.
+
+There are currently two methods to do so.
+
+1. Generating using a given energy, zenith, azimuth… . This can generate
+   an origin shower based on your desired values, or can optionally be
+   sampled.
+2. Generating using an existing HDF5 file. This imports the properties
+   of the HDF5 file and generates input files for the origin shower.
+
+Both methods will generate an input file, list file, and reas file,
+which can then be written into a directory.
+
+.. code:: python
+
+    from smiet import units
+    from smiet.corsika.write_simulation import generate_simulation_from_hdf5, generate_simulation, write_simulation_to_file
+    
+    import numpy as np
+
+1. Generating using user-provided parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Here the following parameters can be provided: - ``sim_nr`` : the
+simulation ID to save the origin shower - ``sim_cores`` : the number of
+CPU cores to user for simulating. This is used to calculate the
+subshowers when using MPI with CORSIKA - ``slice_gram`` : the number of
+slices in grammages used to generate the sliced shower. It is
+recommended to use this value, unless you have a really inclined shower
+- ``sim_primary`` : the primary mass composition of the particle.
+Options are ‘proton’, ‘helium’, ‘carbon’, ‘silicon’, and ‘iron’. -
+``sim_zenith`` : the zenith angle in degrees. If None, then it will be
+randomly sampled from a uniform distribution between sin^2(0) and
+sin^2(90). - ``sim_azimuth`` : the azimuth angle in degrees. If None,
+then it will be randomly sampled from a uniform distribution between 0
+and 360. - ``sim_energy`` : the primary energy in GeV. If None, then it
+will be randomly sampled from a log-uniform distribution between 1e18
+and 1e20. - ``sim_xmax`` : the xmax of the origin shower in g/cm^2. If
+this is provided, the first interaction height of the shower will be
+calculated using a parameterisation from CONEX (pre-computed), and this
+``FIXHEI`` parameter will be given as an input in the CORSIKA input
+file. **NOTE**: this is an experimental feature, so it is not to be
+trusted, as the resolution of this effect is ~ 40 g/cm^2. -
+``magnetic_field`` : the magnetic field site. Options are as in
+radiotools: ‘auger’, ‘moorsbay’, ‘summit’, ‘southpole’ and ‘lofar’. -
+``core`` : the core position of the simulation. Defaults to [0,0,0]
+meters. - ``radii`` : the radius of the star-shape pattern. -
+``nr_of_arms`` : the number of arms in the star-shape pattern. Defaults
+to 1, which is in the vx(vxB) axis. - ``thinning`` : the corsika
+thinning level to use. Defaults to 10^-7. - ``atmosphere`` : the
+atmosphere model (if given in integers) or the GDAS atmosphere (if given
+a path in strings) to use. - ``rotate`` : If it is True, then the
+antennas in the star-shape are rotated by 22.5 degrees. This is
+recommended when generating star-shape antenna layouts so that they do
+not align with the vxB axis, where template synthesis fails.
+
+.. code:: python
+
+    inp_file, list_file, reas_file = generate_simulation(
+        sim_nr=111111,  # the simulation ID to save the origin shower
+        sim_cores=1,  # number of cores used for simulating
+        slice_gram=5,  # slices of grammage for sliced shower
+        sim_zenith = None, # the zenith angle of the shower in degrees. If None, then it will be randomly sampled from a uniform distribution between sin^2(0) and sin^2(90).
+        sim_azimuth = None, # the azimuth angle of the shower in degrees. If None, then it will be randomly sampled from a uniform distribution between 0 and 360.
+        sim_energy = None, # the energy of the shower in GeV. If None, then it will be randomly sampled from a log-uniform distribution between 1e18 and 1e20.
+        sim_xmax = None, # the xmax of the shower in g/cm^2. If **not** None, then the Xmax (along with the energy & zenith) will be used for calculating the FIXHEI parameter
+        sim_primary = 'proton', # primary mass composition
+        sim_core = np.array([0,0,0]) * units.m, # core position in m
+        nr_of_arms = 8, # for starshape, 1 for vxvxB only
+        magnetic_field = 'lofar', # magnetic field site
+        atmosphere=17, # atmospheric model or GDAS atmosphere model
+        rotate=True, # to rotate the antenna positions
+        thinning = 1e-7
+    )
+
+2. Generating using a HDF5 file.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This will use an existing CoREAS hdf5 file to import the settings to
+generate an origin shower for that.
+
+- ``base_sim_file`` : the path to the CoREAS HDF5 file
+- ``sim_nr`` : simulation ID for the new origin shower
+- ``sim_cores`` : total number of CPU cores
+- ``sim_primary`` : primary mass composition for the new simulation. If
+  NOne, it will use the value in the hdf5 file.
+- ``sim_energy`` : primary energy in the new simulation. If None, it
+  will use the value in the hdf5 file.
+- ``slice_gram`` : the number of slices in grammages used to generate
+  the sliced shower. It is recommended to use this value, unless you
+  have a really inclined shower
+- ``atm_file`` : the atmosphere model or GDAS file. If None, the model
+  in the hdf5 file will be used. If a GDAS file was used to generate the
+  coreas simulation, then this should be provided here.
+
+.. code:: python
+
+    sim_directory = "/path/to/simulation/directory"
+
+.. code:: python
+
+    write_simulation_to_file(inp_file, list_file, reas_file, sim_directory=sim_directory) 

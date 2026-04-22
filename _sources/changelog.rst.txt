@@ -1,6 +1,14 @@
 Release notes
 =============
 
+Version 0.8.9
+--------------
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- added examples of how to generate origin showers and the origin shower library
+
 Version 0.8.8
 --------------
 

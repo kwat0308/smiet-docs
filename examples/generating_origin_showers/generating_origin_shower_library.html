@@ -1,0 +1,629 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="">
+    
+    
+      
+        <title>Generating the Origin Shower Library - SMIET 0.8 documentation</title>
+      
+    
+    
+      
+        
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+        <link rel="stylesheet" type="text/css" href="../../_static/sphinx_immaterial_theme.acf80fe7f4d9ef9e2.min.css?v=9e56d0d2" />
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../index.html" title="SMIET 0.8 documentation" class="md-header__button md-logo" aria-label="SMIET 0.8 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SMIET 0.8 documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Generating the Origin Shower Library
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="light-green" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="SMIET 0.8 documentation" class="md-nav__button md-logo" aria-label="SMIET 0.8 documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+    </a>
+    SMIET 0.8 documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    <span>Sections in this documentation:<wbr></span>
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            <span>Sections in this documentation:<wbr></span>
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../logging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>How to use logging in this package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../conventions_units.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Conventions in this package</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Example Usages</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../template-synthesis/ts_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>A User’s Guide to Template Synthesis</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../numpy/numpy_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Num<wbr>Py module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jax/jax_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>JAX module</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../corsika/corsika_index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Tools for CORSIKA/Co<wbr>REAS</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    <span>Release notes</span>
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset" role="main">
+                
+                
+                  
+
+
+<h1 id="generating-the-origin-shower-library">Generating the Origin Shower Library<a class="headerlink" href="#generating-the-origin-shower-library" title="Link to this heading">¶</a></h1>
+<p>Here we will show how you can generate the library of origin showers
+that can then be used with the main framework.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">smiet.corsika</span><span class="w"> </span><span class="kn">import</span> <span class="n">OriginLibraryGenerator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">smiet</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span>
+</code></pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;smiet&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="initialising-the-library-generator">1. Initialising the Library Generator<a class="headerlink" href="#initialising-the-library-generator" title="Link to this heading">¶</a></h2>
+<p>Here you can set the primary composition, energy (in GeV), the
+atmosphere model, and the site (used for the observation level and the
+magnetic field strength).</p>
+<p>Currently only ‘auger’ and ‘lofar’ sites are available, and only
+‘proton’ and ‘iron’ simulations are possible.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># initialise library generator, setting fixed quantities</span>
+<span class="n">library_gen</span> <span class="o">=</span> <span class="n">OriginLibraryGenerator</span><span class="p">(</span>
+    <span class="n">sim_primary</span> <span class="o">=</span> <span class="s2">&quot;iron&quot;</span><span class="p">,</span>  <span class="c1"># only proton and iron supported for now</span>
+    <span class="n">sim_energy</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">9</span> <span class="o">*</span> <span class="n">units</span><span class="o">.</span><span class="n">GeV</span><span class="p">,</span>  <span class="c1"># 10^18 eV</span>
+    <span class="n">atm_model</span><span class="o">=</span> <span class="mi">17</span><span class="p">,</span>   <span class="c1"># only atmosphere models supported for now</span>
+    <span class="n">site</span> <span class="o">=</span> <span class="s2">&quot;lofar&quot;</span><span class="p">,</span>  <span class="c1"># between auger and lofar now</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="set-up-the-paths">2. Set up the paths<a class="headerlink" href="#set-up-the-paths" title="Link to this heading">¶</a></h2>
+<p>Here all the relevant paths can be set up. The following can be set:</p>
+<ul class="simple">
+<li><p>the path to the corsika runner</p></li>
+<li><p>the path in which you want to store the corsika output files</p></li>
+<li><p>the cluster type (currently only horeka-style clusters are supported)</p></li>
+<li><p>the hadronic interaction model to user (sibyll or qgsjet only)</p></li>
+</ul>
+<p>Currently, this assumes that you compiled corsika v77550 with MPI +
+CoREAS plugin + thinning + UrQMD, compiled with a Linux machine</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># setup paths to the corsika executables and run directory</span>
+<span class="c1"># NOTE: currently assumes that you compiled corsika v77550 with the following:</span>
+<span class="c1"># MPI, CoREAS plugin, thinning, urqmd with a Linux machine</span>
+<span class="n">library_gen</span><span class="o">.</span><span class="n">setup_paths</span><span class="p">(</span>
+    <span class="n">corsika_runner_path</span><span class="o">=</span><span class="s2">&quot;/home/hk-project-p0022320/wb2359/Projects/coreas/corsika-77550/run&quot;</span><span class="p">,</span>
+    <span class="n">run_dir</span><span class="o">=</span><span class="s2">&quot;./test&quot;</span><span class="p">,</span> <span class="c1"># directory to store corsika output files</span>
+    <span class="n">cluster_type</span> <span class="o">=</span> <span class="s2">&quot;horeka&quot;</span><span class="p">,</span>  <span class="c1"># sets up the submission file</span>
+    <span class="n">hadr_model</span> <span class="o">=</span> <span class="s2">&quot;sibyll&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="generating-the-input-cards">3. Generating the input cards<a class="headerlink" href="#generating-the-input-cards" title="Link to this heading">¶</a></h2>
+<p>This will generate submission scripts (input cards + submission script)
+for all relevant origin showers:</p>
+<ul class="simple">
+<li><p>zenith angles : the minimum, maximum, and step size of zenith angles
+in degrees</p></li>
+<li><p>xmax values : similar as above but for Xmax. In this case, the energy
+&amp; zenith angle will be used with the xmax to set the FIXHEI, based on
+a CONEX parameterisation.</p></li>
+<li><p>n_sims : this sets the number of simulations generated per (xmax,
+zenith) pair. This is to emulate shower-to-shower fluctuations.</p></li>
+<li><p>n_nodes : the number of nodes to be used for the computation</p></li>
+<li><p>n_cores_per_node : the number of cpu cores per node used.</p></li>
+<li><p>vxvxB : a boolean flag to only simulate on the vx(vxB) arm or the full
+star shape. If on the star-shape, then the star-shape will be rotated
+by 22.5 degrees to avoid antennas on the vxB arm.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># produce the directories and submission files</span>
+<span class="n">submit_filepaths</span> <span class="o">=</span> <span class="n">library_gen</span><span class="o">.</span><span class="n">generate_submit_files</span><span class="p">(</span>
+    <span class="n">zenith_angles</span><span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>  <span class="c1"># min, max, step in degrees</span>
+    <span class="n">xmax_values</span><span class="o">=</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1300</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="c1"># min, max, step in g/cm^2</span>
+    <span class="n">n_sims</span><span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="c1"># number of simulations per configuration</span>
+    <span class="n">n_nodes</span><span class="o">=</span> <span class="mi">2</span><span class="p">,</span>  <span class="c1"># number of nodes to use</span>
+    <span class="n">n_cores_per_node</span><span class="o">=</span> <span class="mi">76</span><span class="p">,</span>  <span class="c1"># number of cores per node</span>
+    <span class="n">vxvxB</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># whether to only simulate on vxvxB arm or not</span>
+<span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="submit-the-jobs">4. Submit the jobs<a class="headerlink" href="#submit-the-jobs" title="Link to this heading">¶</a></h2>
+<p>This submits all scripts, according to the sbatch system.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><code><span class="c1"># now submit the files if you want to</span>
+<span class="c1"># NB: only supports sbatch system for now</span>
+<span class="c1"># comment out to avoid submitting jobs immediately</span>
+<span class="c1"># library_gen.submit_jobs(submit_filepaths)</span>
+</code></pre></div>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  
+  
+  <div class="md-footer-meta md-typeset">
+    
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-footer-copyright__highlight">
+        &#169; Copyright 2025, Mitja Desmet, Keito Watanabe.
+        
+    </div>
+  
+    Created using
+    <a href="https://www.sphinx-doc.org/" target="_blank" rel="noopener">Sphinx</a>
+    8.2.3.
+     and
+    <a href="https://github.com/jbms/sphinx-immaterial/" target="_blank" rel="noopener">Sphinx-Immaterial</a>
+  
+</div>
+      
+    </div>
+    
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+        <script src="../../_static/sphinx_immaterial_theme.32136f45f91ae6956.min.js?v=a7a9472a"></script>
+    
+  </body>
+</html>
