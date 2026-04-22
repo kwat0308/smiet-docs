@@ -1,6 +1,40 @@
 Release notes
 =============
 
+Version 0.8.8
+--------------
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- the sign between the geomagnetic axis and the shower axis was not the same as in the numpy version. This caused the geomagnetic emission to behave wrong, especially at higher zenith angles. This is now fixed
+- When synthesising with zenith angles > the origin, this lead to artificially synthesised signals. This is now set such that signals < the grammage of which the observation level is is set to zero.
+- Some units were added in the JAX version
+- SMIETRun was previously using origin showers from different zenith angles for the lower and upper synthesised signals. This is now fixed such that the zenith angles are the same for both lower & upper signals, and then the templates are chosen such that they are near the origin xmax.
+- a new parameter `atm_dens_corr` is added to the JAX version. This might be necessary to take into account different corrections in the atmosphere when running a reconstruction with a different atmosphere, e.g. when using a GDAS atmosphere for the reconstruction but the templates were generated with a US standard atmosphere. This is not implemented in the Numpy version yet, and thus not available when using the Numpy version of SMIETRun.
+
+Version 0.8.7
+-------------
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- Fixed a bug in the calculation of the interpolated synthesis. Due to the array structure of JAX, calculations such as `arr += 1` has a different behavoiur than in Numpy. This caused the interpolated synthesis to be incorrectly calculated, leading to wrong results. This is now fixed.
+- the allowed Xmax and zenith angle range is extended to [min(xmax_origin)-100, max(xmax_origin)+100] and [min(zenith)-3, max(zenith)+3] degrees respectively, for both JAX and Numpy implementations. This is motivated by the 6% systematic uncertainty in SMIET.
+- The JAX version of TemplateSynthesis current does not update the slices when running the synthesis. This is due to JIT transformations which are not compatible with dynamic slicing. This is still a pending issue which will be fixed in future versions.
+- The `smiet.jax.synthesis.TemplateSynthesis` class is now a PyTree object, which allows it to be used with JAX transformations such as `jit` and `vmap`. However, this also means that the class cannot be used with non-JAX code, such as the Numpy version. Thus, the JAX version of TemplateSynthesis is now only available in the `smiet.jax.synthesis` module, and cannot be imported from the `smiet.numpy.synthesis` module.
+- The traces are now shifted by 1/2 the trace length, as opposed to moving the peak to the middle of the trace. This allows the relative timing information to be preserved between antennas. This is applied to both the JAX and Numpy versions. A version of the templates with this version is now in works.
+
+Version 0.8.6
+-------------
+
+Highlights and breaking changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- The number of slices that are being used are now stored as the minimum number of slices used (as opposed to the index in which before the slices are used, like in the previous version). This can be accessed by `self.nslices_min` in `CoreasShower` (only in the Numpy version for now). This is useful when wanting to know how many slices were used in the synthesis, especially for plotting purposes.
+- Previously the time axis for the jax version stores the time axis for all slices. This is now reduced to store only the 2nd slice (corresponding to the time axis at 5 g/cm^2), following the numpy version.
+- an additional `save_labels` parameter is available in the `SMIETRun.synthesize_showers` function as now the `reconstruct_starshape_from_vxvxB` function supports JIT transformation (for IFT purposes), which disallows strings to be traced. Thus, when using this with the JAX version, the user must set `save_labels=False` to avoid errors.
+- The `TemplateSynthesis` class in the JAX version is now converted into a PyTree object, so that it can be used with JAX transformations such as `jit` and `vmap`. 
+
 Version 0.8.5
 -------------
 
